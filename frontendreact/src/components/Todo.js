@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import Modal from './Modal';
+import Register from '../screens/Register';
+import Login from '../screens/Login';
 import Backdrop from './Backdrop';
 
 function Todo(props) {
@@ -19,11 +20,11 @@ function Todo(props) {
 
     return (
         <div className = 'card'>
-        <h1>{props.text}</h1>
+        <h1>Register</h1>
         <div className = 'actions'>
         <button className='btn' onClick={selectHandler}> Select</button>
         </div>
-        {modalVisible ? <Modal onCancel={closeModalHandler} onConfirm={closeModalHandler}/> : null}
+        {modalVisible ? <Register onCancel={closeModalHandler} onConfirm={closeModalHandler}/> : null}
         {modalVisible ? <Backdrop /> : null}
         </div>
     );
