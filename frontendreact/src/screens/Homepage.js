@@ -1,6 +1,12 @@
+import Movie from '../components/Movie';
+
 function Homepage() {
     return (
-        <div><p>HOMEPAGE</p></div>
+        <div>
+            <Movie text="Batman"/>
+            <Movie text = "Final Destination"/>
+
+        </div>
     );
 }
 export default Homepage;

@@ -6,29 +6,36 @@ function Login(props) {
         window.location.href = window.location.pathway;
     }
 
-    function confirmHandler() {
+    function confirmHandler(evt) {
         //grab data from form and save as variables to send to server
+        //TODO: getFetch from server the registered user information
+
         //setSession to hold user info
-        props.onConfirm();
+        evt.preventDefault();
+        let loginForm = document.getElementById('loginForm');
+        sessionStorage.setItem("currentEmail", loginForm.email.value);
+        console.log(sessionStorage.getItem("currentEmail"));
+        window.location.pathway = '/';
+        window.location.href = window.location.pathway;
     }
 
     return (
-    <div className='modal'>
+    <div className = "modal">
         <h3>
             Please Enter Information to Login:
         </h3>
         <br></br>
-        <form>
-            <label for="email">Enter your email: </label>
+        <form id="loginForm">
+            <label>Enter your email: </label>
             <input type="text" id="email" name="email" required></input>
-
-            <label for="password">Enter your password: </label>
+            <br></br><br></br>
+            <label>Enter your password: </label>
             <input type="text" id="password" name="password" required></input>
-
-            <scan>
-            <button className='btn' onClick={confirmHandler} type="submit">Confirm</button>
+            <br></br><br></br>
+            <span>
+            <button className='btn' onClick={confirmHandler} type="submit">Log In</button>
             <button className='btn btn--alt' onClick={cancelHandler}>Cancel</button>        
-        </scan>
+        </span>
         </form><br></br>
  
     </div>

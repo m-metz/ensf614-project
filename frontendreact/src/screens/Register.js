@@ -1,8 +1,8 @@
 import Paymentinfo from '../components/Paymentinfo';
 import { useState } from 'react';
+import Backdrop from '../components/Backdrop';
 
 function Register(props) {
-    const [modalVisible, setModalVisible] = useState(true);
 
     function cancelHandler() {
         window.location.pathway = '/';
@@ -10,18 +10,22 @@ function Register(props) {
 
     }
 
-    function confirmHandler() {
+    function confirmHandler(evt) {
         //grab data from form and save as variables to send to server
-        props.onConfirm();
+        evt.preventDefault();
+        let registerForm = document.getElementById('registerForm');
+        //post all information to server
+        window.location.pathway = '/';
+        window.location.href = window.location.pathway;
     }
 
     return (
-    <div className='modal' id="registermodal">
+    <div className="modal">
         <h3>
             Please Enter Information to Register:
         </h3>
         <br></br>
-        <form>
+        <form id="registerForm">
             <div>
             <label for="name">Enter your name: </label>
             <input type="text" id="name" name="name" required></input>
@@ -35,7 +39,6 @@ function Register(props) {
             <input type="text" id="address" name="address" required></input>
             </div><br></br>
             <div>
-                
                 <Paymentinfo />
             </div>
             <div><br></br>
@@ -44,11 +47,11 @@ function Register(props) {
             </div><br></br>
             <scan>
             <button className='btn' onClick={confirmHandler} type="submit">Confirm</button>
-            <button className='btn btn--alt' onClick={cancelHandler}>Cancel</button>        
+            <button className='btn btn--alt' onClick={cancelHandler}>Return to Home</button>        
         </scan>
         </form><br></br>
- 
     </div>
+
     );
 }
 
