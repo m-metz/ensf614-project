@@ -6,6 +6,7 @@ import { Route} from 'react-router-dom';
 import Homepage from './screens/Homepage';
 import Moviepage from './screens/Moviepage';
 import Register from './screens/Register';
+import Admin   from './screens/Admin';
 import Login from './screens/Login';
 import Navbar from './components/Navbar';
 import Todo from './components/Todo';
@@ -21,6 +22,9 @@ function App() {
       break
     case "/register":
       component = <Register />;
+      break
+    case "/admin":
+      component = <Admin />;
       break
   }
 

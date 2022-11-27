@@ -26,6 +26,9 @@ export default function Navbar() {
             <li>
                 <a href="/login">Login </a>
             </li>
+            <li>
+                <a href="/admin">Administrator Mode </a>
+            </li>
         </ul>
     </nav>
     )
