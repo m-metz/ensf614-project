@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.ensf614project</groupId>
-	<artifactId>ensf614project</artifactId>
+	<artifactId>movie-theatre</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>ensf614project</name>
-	<description>Ensf614 Movie Theatre Website Project</description>
+	<name>ENSF 614 Movie Theatre Project</name>
+	<description>ENSF 614 Movie Theatre Website Project</description>
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>
