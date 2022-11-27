@@ -13,13 +13,17 @@ function Todo(props) {
 
     }
 
+    function closeModalHandler() {
+        setModalVisible(false);
+    }
+
     return (
         <div className = 'card'>
         <h1>{props.text}</h1>
         <div className = 'actions'>
         <button className='btn' onClick={selectHandler}> Select</button>
         </div>
-        {modalVisible ? <Modal /> : null}
+        {modalVisible ? <Modal onCancel={closeModalHandler} onConfirm={closeModalHandler}/> : null}
         {modalVisible ? <Backdrop /> : null}
         </div>
     );
