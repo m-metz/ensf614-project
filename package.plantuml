@@ -1,0 +1,45 @@
+@startuml
+package controllers {
+
+class UserController
+class TicketController
+class MovieController
+class AdministratorController
+}
+
+package repositories {
+interface RegisteredUserRepository
+interface CancellationRepository
+interface ShowtimeRepository
+interface MovieRepository
+interface TicketRepository
+interface ScreenRepository
+interface TheatreRepository
+interface TransactionRepository
+interface CardRepository
+
+}
+
+package services {
+class CancellationService
+}
+
+package entities {
+
+class RegisteredUser
+class CancellationCredit
+class Card
+class BillingSystem
+class SystemAdmin
+class Transaction
+class Ticket
+class Showtime 
+class Movie
+class Screen
+class Theatre
+}
+
+controllers --> services 
+services --> repositories 
+repositories --> entities
+@enduml

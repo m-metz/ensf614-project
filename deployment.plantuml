@@ -1,0 +1,14 @@
+@startuml
+node server{
+     rectangle ensf614.jar
+}
+node client {
+    rectangle frontendreact
+}
+database database{
+    rectangle projectDatabase.sql
+}
+
+client -- server
+server -- database
+@enduml
