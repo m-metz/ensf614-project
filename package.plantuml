@@ -12,7 +12,6 @@ interface RegisteredUserRepository
 interface CancellationRepository
 interface ShowtimeRepository
 interface MovieRepository
-interface SeatRepository
 interface TicketRepository
 interface ScreenRepository
 interface TheatreRepository
@@ -23,7 +22,6 @@ interface CardRepository
 
 package services {
 class CancellationService
-class SeatService
 }
 
 package entities {
@@ -38,7 +36,6 @@ class Ticket
 class Showtime 
 class Movie
 class Screen
-class Seat
 class Theatre
 }
 
