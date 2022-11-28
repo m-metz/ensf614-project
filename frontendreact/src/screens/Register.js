@@ -1,6 +1,7 @@
 import Paymentinfo from '../components/Paymentinfo';
 import { useState } from 'react';
 import Backdrop from '../components/Backdrop';
+import Homepage from '../screens/Homepage'
 
 function Register(props) {
 
@@ -54,6 +55,7 @@ function Register(props) {
         </div>
         <div>
             <Backdrop />
+            <Homepage zindex="-30"/>
         </div>
     </div>
 

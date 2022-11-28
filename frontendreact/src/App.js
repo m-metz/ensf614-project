@@ -26,6 +26,9 @@ function App() {
     case "/admin":
       component = <Admin />;
       break
+    case "/moviepage":
+      component = <Moviepage />;
+      break
   }
 
   //localhost:3000/

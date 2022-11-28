@@ -7,17 +7,24 @@ import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 
 function Movie(props) {
+
+    function movieSelectHandler() {
+        console.log(props.title);
+        sessionStorage.setItem("currentMovie", props.title);
+        window.location.pathway = '/moviepage';
+        window.location.href = window.location.pathway;
+    }
+
     return (
-        <Card sx={{ maxWidth: 345 }}>
+        <Card sx={{ }} onClick={movieSelectHandler}>
             <CardActionArea>
                 <CardMedia
                     component = "img"
-                    height="140"
                     image={props.image}
                     alt={props.title}
                     />
             <CardContent>
-                <Typography gutterBottom variant = "h3" component="div">
+                <Typography gutterBottom variant = "h4" component="div">
                     {props.title}
                 </Typography>
                 <Typography variant="body2" color="text.secondary">

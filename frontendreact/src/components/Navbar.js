@@ -18,7 +18,7 @@ export default function Navbar() {
     }
 
     return (<nav className='nav'>
-        <a href="/" className="site-title"> Movie Theatre </a>
+        <a href="/" className="site-title"> Movies </a>
         <ul>
             <li>
                 <a href="/register">Register </a>
