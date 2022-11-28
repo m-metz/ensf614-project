@@ -41,5 +41,6 @@ class Theatre
 
 controllers --> services 
 services --> repositories 
+services --> entities
 repositories --> entities
 @enduml
