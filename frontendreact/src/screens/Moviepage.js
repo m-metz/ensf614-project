@@ -1,7 +1,6 @@
 //Appears when specific movie is selected from homescreen
 import Movie from'../components/Movie';
 import SearchCard from'../components/SearchCard';
-import Homepage from './Homepage';
 import {Grid} from '@mui/material';
 
 const dummyMovieData = [
@@ -53,7 +52,7 @@ const dummyMovieData = [
 function Moviepage() {
     function currentMovie() {
         //getFetch
-        const currentMovie = dummyMovieData.find(movie => movie.title == sessionStorage.getItem('currentMovie')) ;
+        const currentMovie = dummyMovieData.find(movie => movie.title === sessionStorage.getItem('currentMovie')) ;
         console.log(currentMovie);
         return currentMovie;
     }
@@ -72,7 +71,6 @@ function Moviepage() {
             <Grid>
                 <SearchCard
                     title="Search Theatres"
-
                     button = "Search">
 
                 </SearchCard>

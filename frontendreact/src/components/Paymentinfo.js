@@ -4,12 +4,12 @@ function Paymentinfo() {
             <h4>Payment Information: </h4>
             <div>
             <label for="cardtype">Type: </label>
-            <scan>
+            <span>
             <input type="radio" id="credit" name="cardtype" value="credit"></input>
             <label for="credit">Credit Card</label>
             <input type="radio" id="debit" name="cardtype" value="debit"></input>
             <label for="credit">Debit Card</label>
-            </scan>
+            </span>
             <br></br>
             </div>
             <br></br>
