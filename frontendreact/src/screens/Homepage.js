@@ -1,4 +1,4 @@
-import Movie from '../components/Movie';
+import Movielist from '../components/Movielist';
 
 const dummyMovieData = [
     {
@@ -14,18 +14,39 @@ const dummyMovieData = [
         image: "21jump.jpg",
         description: "This is a movie about police who go to school.",
         Rating: "3"
+    },
+    {
+        id: '2',
+        title: "21 Jump Street",
+        image: "21jump.jpg",
+        description: "This is a movie about police who go to school.",
+        Rating: "3"
+    },
+    {
+        id: '2',
+        title: "21 Jump Street",
+        image: "21jump.jpg",
+        description: "This is a movie about police who go to school.",
+        Rating: "3"
+    }, 
+    {
+        id: '2',
+        title: "21 Jump Street",
+        image: "21jump.jpg",
+        description: "This is a movie about police who go to school.",
+        Rating: "3"
     }
+    
+
 ]
 
 function Homepage() {
     return (
         <section>
-            <ul>
+           
             <h1>Movies Showing </h1>
-            {dummyMovieData.map((movie) => {
-                return <li key={movie.id}>{movie.title}</li>
-            })}
-            </ul>
+            <Movielist movies={dummyMovieData} />
+
         </section>
     );
 }

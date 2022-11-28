@@ -3,16 +3,17 @@
 }
 
 .image {
-  width: 100%;
+  width: 20rem;
   height: 20rem;
   overflow: hidden;
   border-top-right-radius: 6px;
   border-top-left-radius: 6px;
+  border-radius: 8px;
 }
 
 .image img {
-  width: 100%;
-  object-fit: cover;
+  width: 20rem;
+  height:20rem;
 }
 
 .content {
@@ -43,4 +44,10 @@
 .actions button:hover,
 .actions button:active {
   background-color: #ffe2ed;
+}
+
+.card {
+  background-color: white;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
