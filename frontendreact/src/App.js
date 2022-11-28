@@ -9,7 +9,8 @@ import Register from './screens/Register';
 import Admin   from './screens/Admin';
 import Login from './screens/Login';
 import Navbar from './components/Navbar';
-import Backdrop from './components/Backdrop';
+import BuyTicketsPage from './screens/BuyTicketsPage';
+import SelectSeatsPage from './screens/SelectSeatsPage';
 
 function App() {
   let component;
@@ -28,6 +29,12 @@ function App() {
       break
     case "/moviepage":
       component = <Moviepage />;
+      break
+    case "/buyticketspage":
+      component = <BuyTicketsPage />;
+      break
+    case '/selectseatspage':
+      component = <SelectSeatsPage />;
       break
   }
 

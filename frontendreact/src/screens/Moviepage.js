@@ -49,6 +49,8 @@ const dummyMovieData = [
     
 ]
 
+const currentMovieId = sessionStorage.getItem("currentMovieId");
+
 function Moviepage() {
     function currentMovie() {
         //getFetch

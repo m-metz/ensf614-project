@@ -11,6 +11,7 @@ function Movie(props) {
     function movieSelectHandler() {
         console.log(props.title);
         sessionStorage.setItem("currentMovie", props.title);
+        sessionStorage.setItem("currentMovieId", props.id);
         window.location.pathway = '/moviepage';
         window.location.href = window.location.pathway;
     }
