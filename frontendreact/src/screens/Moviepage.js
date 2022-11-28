@@ -1,6 +1,6 @@
 //Appears when specific movie is selected from homescreen
 import Movie from'../components/Movie';
-import SimpleCard from'../components/SearchCard';
+import SearchCard from'../components/SearchCard';
 import Homepage from './Homepage';
 import {Grid} from '@mui/material';
 
@@ -70,12 +70,12 @@ function Moviepage() {
                 description={movie.description} />
             </Grid>
             <Grid>
-                <SimpleCard
+                <SearchCard
                     title="Search Theatres"
 
                     button = "Search">
 
-                </SimpleCard>
+                </SearchCard>
             </Grid>
         </Grid>
     );
