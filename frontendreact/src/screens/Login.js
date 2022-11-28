@@ -1,3 +1,4 @@
+import Backdrop from "../components/Backdrop";
 
 function Login(props) {
 
@@ -20,6 +21,7 @@ function Login(props) {
     }
 
     return (
+    <div>
     <div className = "modal">
         <h3>
             Please Enter Information to Login:
@@ -37,7 +39,10 @@ function Login(props) {
             <button className='btn btn--alt' onClick={cancelHandler}>Cancel</button>        
         </span>
         </form><br></br>
- 
+        </div>
+        <div>
+            <Backdrop />
+        </div>
     </div>
     );
 }

@@ -20,7 +20,8 @@ function Register(props) {
     }
 
     return (
-    <div className="modal">
+    <div>
+        <div className = "modal">
         <h3>
             Please Enter Information to Register:
         </h3>
@@ -50,6 +51,10 @@ function Register(props) {
             <button className='btn btn--alt' onClick={cancelHandler}>Return to Home</button>        
         </scan>
         </form><br></br>
+        </div>
+        <div>
+            <Backdrop />
+        </div>
     </div>
 
     );

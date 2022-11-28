@@ -1,6 +1,6 @@
 
 import './App.css';
-import { Route} from 'react-router-dom';
+import { Route } from 'react-router-dom';
 
 //import pages
 import Homepage from './screens/Homepage';
@@ -8,7 +8,7 @@ import Moviepage from './screens/Moviepage';
 import Register from './screens/Register';
 import Login from './screens/Login';
 import Navbar from './components/Navbar';
-import Todo from './components/Todo';
+import Backdrop from './components/Backdrop';
 
 function App() {
   let component;
