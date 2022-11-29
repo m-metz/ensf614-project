@@ -18,7 +18,7 @@ function Seat(props) {
     }
 
     return (
-        <Card sx={{ }} onClick={seatSelectHandler}>
+        <Card sx={{width: 1/4, height: 1/4}} onClick={seatSelectHandler}>
             <CardActionArea>
                 <CardContent>
                     <p>{props.seatNum}</p>
