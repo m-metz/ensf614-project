@@ -10,13 +10,14 @@ import com.ensf614project.movietheatre.entities.Ticket;
 
 @Repository
 public interface TicketRepository extends JpaRepository<Ticket, Long> {
-    public interface Seat {
+    public interface TakenSeat {
+        int getRowNum();
+
         int getSeatNum();
 
-        int getRowNum();
     }
 
-    List<Seat> getTicketByShowtimeIdAndIsCancelledOrderByRowNumAscSeatNumAsc(Long showtimeId, boolean isCancelled);
+    List<TakenSeat> getTicketByShowtimeIdAndIsCancelledOrderByRowNumAscSeatNumAsc(Long showtimeId, boolean isCancelled);
 
     Optional<Ticket> findTicketById(Long ticketId);
 }
