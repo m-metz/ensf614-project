@@ -7,20 +7,24 @@ export default function Navbar(props) {
     return (<nav className='nav'>
         <a href="/" className="site-title"> Movies </a>
         <ul>
-            <li>
-                <a href="/register">Register </a>
-            </li>
-            <li>
-                <a href="/login">Login </a>
-            </li>
             {props.loggedIn ? (
                 <><li>
-                    <a href='/prerelease'>Prereleased Movies</a>
+                    <a href='/prerelease'>Pre-Releases</a>
                 </li><li>
                         <a href='/payFee'>Manage Account</a>
-                    </li></>
+                    </li>
+                    <li>
+                        <a href='/logout'>Logout</a>
+                    </li>
+                    </>
                 ): (
-                    null
+                    <>
+                    <li>
+                    <a href="/register">Register </a>
+                </li>
+                <li>
+                    <a href="/login">Login </a>
+                </li></>
                 )}
             <li>
                 <a href="/admin">Administrator Mode </a>

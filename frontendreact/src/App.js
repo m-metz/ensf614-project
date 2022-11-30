@@ -1,6 +1,5 @@
-
+import { useState } from 'react';
 import './App.css';
-import { Route } from 'react-router-dom';
 
 //import pages
 import Homepage from './screens/Homepage';
@@ -13,6 +12,11 @@ import BuyTicketsPage from './screens/BuyTicketsPage';
 import SelectSeatsPage from './screens/SelectSeatsPage';
 
 function App() {
+
+  const [loggedIn, setLoggedIn] = useState(false);
+  let currentEmail = sessionStorage.getItem("currentEmail");
+  console.log(currentEmail);
+
   let component;
   switch(window.location.pathname) {
     case "/":
@@ -41,7 +45,7 @@ function App() {
   //localhost:3000/
   return (
     <div>
-      <Navbar loggedIn={true}/>
+      <Navbar loggedIn={false}/>
       {component}
 
     </div>
