@@ -22,6 +22,7 @@ function Seat(props) {
             <CardActionArea>
                 <CardContent>
                     <p>{props.seatNum}</p>
+                    <p>Row {props.seatRow}</p> 
                     <p>{props.available}</p>
                 </CardContent>
                 {/* <CardMedia

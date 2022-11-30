@@ -10,10 +10,10 @@ function SeatView(props) {
     }
 
     return (
-        <Grid container spacing={2} justifyContent="center"  rowSpacing = {2} direction="row">
-            {props.seats.map(seat => <Grid item xs = {2.3}> <Seat
+        <Grid container spacing={1} justifyContent="center"  rowSpacing = {1} direction="row">
+            {props.seats.map(seat => <Grid item xs = {1.2}> <Seat
                                                     seatNum = {seat.seatNum}
-                                                    image={"seatSquare.png"}
+                                                    // seatRow = {seat.seatRow}
                                                     /> </Grid>)}
 
         </Grid>
