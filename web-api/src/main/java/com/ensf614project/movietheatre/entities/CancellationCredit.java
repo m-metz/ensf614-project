@@ -32,10 +32,12 @@ public class CancellationCredit {
     public CancellationCredit() {
     }
 
-    public CancellationCredit(LocalDate expiryDate, double creditValue, String creditCode) {
+    public CancellationCredit(LocalDate expiryDate, double creditValue, String creditCode,
+            RegisteredUser registeredUser) {
         this.expiryDate = expiryDate;
         this.creditValue = creditValue;
         this.creditCode = creditCode;
+        this.registeredUser = registeredUser;
     }
 
     public long getId() {

@@ -1,5 +1,7 @@
 package com.ensf614project.movietheatre.controllers;
 
+import java.util.List;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,5 +23,10 @@ public class TicketController {
     @GetMapping("{ticketId}")
     public Ticket getTicketById(@PathVariable Long ticketId) {
         return ticketService.getTicketById(ticketId);
+    }
+
+    @GetMapping("/email/{email}")
+    public List<Ticket> getTicketById(@PathVariable String email) {
+        return ticketService.getTicketsForUser(email);
     }
 }

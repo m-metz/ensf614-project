@@ -11,6 +11,8 @@ import javax.persistence.ManyToOne;
 import org.springframework.lang.NonNull;
 import org.springframework.lang.Nullable;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Card {
     @Id
@@ -18,6 +20,7 @@ public class Card {
     private long id;
 
     @NonNull
+    @JsonIgnore
     private String number;
 
     private int cvv;
@@ -36,6 +39,7 @@ public class Card {
 
     @Nullable
     @ManyToOne
+    @JsonIgnore
     private RegisteredUser registeredUser;
 
     public Card() {
@@ -50,6 +54,14 @@ public class Card {
         this.billingPostal = billingPostal;
         this.type = type;
         this.registeredUser = registeredUser;
+    }
+
+    public String getLastFourDigits() {
+        if (number.length() > 4) {
+            return number.substring(number.length() - 4);
+        } else {
+            return number;
+        }
     }
 
     public long getId() {
