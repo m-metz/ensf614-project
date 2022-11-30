@@ -24,11 +24,11 @@ function Seat(props) {
                     <p>{props.seatNum}</p>
                     <p>{props.available}</p>
                 </CardContent>
-                <CardMedia
+                {/* <CardMedia
                     component = "img"
                     image={props.image}
                     
-                    />
+                    /> */}
             </CardActionArea>
             </Card>
     );
