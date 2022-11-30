@@ -13,7 +13,8 @@ function SeatView(props) {
         <Grid container spacing={1} justifyContent="center"  rowSpacing = {1} direction="row">
             {props.seats.map(seat => <Grid item xs = {1.2}> <Seat
                                                     seatNum = {seat.seatNum}
-                                                    // seatRow = {seat.seatRow}
+                                                    seatRow = {seat.seatRow}
+                                                    isAvailable = {seat.isAvailable}
                                                     /> </Grid>)}
 
         </Grid>
