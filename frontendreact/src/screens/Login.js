@@ -1,6 +1,8 @@
 import Backdrop from "../components/Backdrop";
+import { useState } from 'react';
 
 function Login(props) {
+    const [loggedIn, setLoggedIn] = useState(false);
 
     function cancelHandler() {
         window.location.pathway = '/';
@@ -14,10 +16,18 @@ function Login(props) {
         //setSession to hold user info
         evt.preventDefault();
         let loginForm = document.getElementById('loginForm');
+
+        //Verify credentials with server
+        //If verfied:
         sessionStorage.setItem("currentEmail", loginForm.email.value);
+        setLoggedIn(true);
         console.log(sessionStorage.getItem("currentEmail"));
         window.location.pathway = '/';
         window.location.href = window.location.pathway;
+
+        //If not verfied 
+        //alert("Invalid credentials! Please try again.")
+        //return -1;
     }
 
     return (
