@@ -41,7 +41,7 @@ function App() {
   //localhost:3000/
   return (
     <div>
-      <Navbar />
+      <Navbar loggedIn={true}/>
       {component}
 
     </div>
