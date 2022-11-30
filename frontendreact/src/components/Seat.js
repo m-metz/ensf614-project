@@ -29,6 +29,9 @@ function Seat(props) {
     <Button
       variant={buttonVariant}
       onClick={seatSelectHandler}
+    //   fullWidth="false"
+    //   style={{maxWidth: '10px', fullWidth: "false"}}
+    sx={{width: "1em"}}
     >
       {props.seatNum}
     </Button>
