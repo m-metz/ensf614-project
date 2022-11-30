@@ -8,16 +8,23 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import com.ensf614project.movietheatre.entities.Card;
 import com.ensf614project.movietheatre.entities.Movie;
+import com.ensf614project.movietheatre.entities.RegisteredUser;
 import com.ensf614project.movietheatre.entities.Screen;
 import com.ensf614project.movietheatre.entities.Showtime;
 import com.ensf614project.movietheatre.entities.Theatre;
 import com.ensf614project.movietheatre.entities.Ticket;
+import com.ensf614project.movietheatre.entities.Transaction;
+import com.ensf614project.movietheatre.repositories.CancellationCreditRepository;
+import com.ensf614project.movietheatre.repositories.CardRepository;
 import com.ensf614project.movietheatre.repositories.MovieRepository;
+import com.ensf614project.movietheatre.repositories.RegisteredUserRepository;
 import com.ensf614project.movietheatre.repositories.ScreenRepository;
 import com.ensf614project.movietheatre.repositories.ShowtimeRepository;
 import com.ensf614project.movietheatre.repositories.TheatreRepository;
 import com.ensf614project.movietheatre.repositories.TicketRepository;
+import com.ensf614project.movietheatre.repositories.TransactionRepository;
 
 @SpringBootApplication
 public class MovieTheatreApplication {
@@ -28,7 +35,9 @@ public class MovieTheatreApplication {
 	@Bean
 	public CommandLineRunner demo(MovieRepository movieRepository, TheatreRepository theatreRepository,
 			ScreenRepository screenRepository, ShowtimeRepository showtimeRepository,
-			TicketRepository ticketRepository) {
+			TicketRepository ticketRepository, TransactionRepository transactionRepository,
+			RegisteredUserRepository registeredUserRepository, CardRepository cardRepository,
+			CancellationCreditRepository cancellationCreditRepository) {
 		return (args) -> {
 			// save movies
 			movieRepository.save(new Movie("Black Panther: Wakanda Forever", LocalDate.of(2022, 11, 11), "Ryan Coogler",
@@ -61,6 +70,7 @@ public class MovieTheatreApplication {
 			LocalDate date;
 			boolean isAvailable;
 			double price = 9.99;
+			long transactionNumber = 423104921;
 			for (Long i = 1L; i <= 4L; i++) {
 
 				// for 3 consecutive days
@@ -90,15 +100,50 @@ public class MovieTheatreApplication {
 						// add tickets to showtimes
 						for (int rowNumber = 3; rowNumber <= 5; rowNumber = rowNumber + 2) {
 							for (int seatNumber = 4; seatNumber <= 6; seatNumber++) {
-								ticketRepository.save(new Ticket(price, firstShowtime, false, seatNumber, rowNumber));
-								ticketRepository.save(new Ticket(price, secondShowtime, false, seatNumber, rowNumber));
-								ticketRepository.save(new Ticket(price, thirdShowtime, false, seatNumber, rowNumber));
+								// add transactions
+								Transaction first = new Transaction(transactionNumber++,
+										date.minusDays(5).atTime(20, 23),
+										"fake.email@gmail.com", price);
+
+								Transaction second = new Transaction(transactionNumber++,
+										date.minusDays(5).atTime(20, 23),
+										"fake.email@gmail.com", price);
+
+								Transaction third = new Transaction(transactionNumber++,
+										date.minusDays(5).atTime(20, 23),
+										"fake.email@gmail.com", price);
+
+								transactionRepository.save(first);
+								transactionRepository.save(second);
+								transactionRepository.save(third);
+
+								// add tickets
+								ticketRepository
+										.save(new Ticket(price, firstShowtime, false, seatNumber, rowNumber, first));
+								ticketRepository
+										.save(new Ticket(price, secondShowtime, false, seatNumber, rowNumber, second));
+								ticketRepository
+										.save(new Ticket(price, thirdShowtime, false, seatNumber, rowNumber, third));
 							}
 
 						}
+
 					}
+
 				}
 			}
+
+			// add few registered users
+			RegisteredUser user = new RegisteredUser("fake.email@gmail.com", "Fake User",
+					"Nice Address, Calgary, AB, Canada", "admin");
+
+			registeredUserRepository.save(user);
+			registeredUserRepository.save(new RegisteredUser("John.Smith@gmail.com", "John Smith",
+					"Nice Address, Calgary, AB, Canada", "admin"));
+
+			// add card to user
+			cardRepository.save(new Card("1234123412341234", 123, "Fake User", LocalDate.of(2023, 12, 1),
+					"D6KB9F", "Credit", user));
 
 		};
 	}
