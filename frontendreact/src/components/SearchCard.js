@@ -62,7 +62,8 @@ export default function SearchCard(props) {
     let i, oldShowtimes = document.getElementById("showtimeOptions").options.length-1;
  
       for(i = oldShowtimes; i > 0; i--) {
-        document.getElementById("showtimeOptions").remove(i - oldShowtimes); 
+        //console.log(oldShowtimes - i, ": ",document.getElementById("showtimeOptions")[i])
+        document.getElementById("showtimeOptions")[oldShowtimes - i].innerHTML=""; 
       }
 
     //Populate showtime dropdown
