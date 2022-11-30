@@ -8,6 +8,8 @@ import javax.persistence.ManyToOne;
 
 import org.springframework.lang.NonNull;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 public class Ticket {
     @Id
@@ -26,15 +28,22 @@ public class Ticket {
 
     private int rowNum;
 
+    @NonNull
+    @ManyToOne
+    @JsonIgnoreProperties("tickets")
+    private Transaction transaction;
+
     public Ticket() {
     }
 
-    public Ticket(double price, Showtime showtime, boolean isCancelled, int seatNum, int rowNum) {
+    public Ticket(double price, Showtime showtime, boolean isCancelled, int seatNum, int rowNum,
+            Transaction transaction) {
         this.price = price;
         this.showtime = showtime;
         this.isCancelled = isCancelled;
         this.seatNum = seatNum;
         this.rowNum = rowNum;
+        this.transaction = transaction;
     }
 
     public long getId() {
@@ -83,6 +92,14 @@ public class Ticket {
 
     public void setRowNum(int rowNum) {
         this.rowNum = rowNum;
+    }
+
+    public Transaction getTransaction() {
+        return transaction;
+    }
+
+    public void setTransaction(Transaction transaction) {
+        this.transaction = transaction;
     }
 
 }
