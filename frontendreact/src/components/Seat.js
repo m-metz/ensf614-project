@@ -5,9 +5,13 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { Button, CardActionArea } from "@mui/material";
-
+import {useState} from 'react';
+// import ToggleButton from '@material-ui/lab/ToggleButton';
 let seatList = [];
 let buttonVariant = "";
+
+// const [selected, setselected] = useState(second);
+//TODO change color of button based on selection
 function Seat(props) {
   function seatSelectHandler() {
     console.log(props.seatNum);
@@ -17,6 +21,7 @@ function Seat(props) {
   }
 
   function determineButton() {
+    // const [selected, setSelected] = useState();
     if (props.isAvailable) {
       buttonVariant = "outlined";
     } else {
@@ -26,29 +31,14 @@ function Seat(props) {
 
   determineButton();
   return (
+    
     <Button
       variant={buttonVariant}
       onClick={seatSelectHandler}
-    //   fullWidth="false"
-    //   style={{maxWidth: '10px', fullWidth: "false"}}
-    sx={{width: "1em"}}
+      sx={{ width: "1em" }}
     >
       {props.seatNum}
     </Button>
-    // <Card sx={{}} onClick={seatSelectHandler}>
-    //     <CardActionArea>
-    //         <CardContent>
-    //             <p>{props.seatNum}</p>
-    //             <p>Row {props.seatRow}</p>
-    //             <p>{props.available}</p>
-    //         </CardContent>
-    //         {/* <CardMedia
-    //             component = "img"
-    //             image={props.image}
-
-    //             /> */}
-    //     </CardActionArea>
-    //     </Card>
   );
 }
 export default Seat;
