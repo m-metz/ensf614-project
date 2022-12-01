@@ -1,5 +1,7 @@
 package com.ensf614project.movietheatre;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
@@ -8,6 +10,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import com.ensf614project.movietheatre.entities.CancellationCredit;
 import com.ensf614project.movietheatre.entities.Card;
 import com.ensf614project.movietheatre.entities.Movie;
 import com.ensf614project.movietheatre.entities.RegisteredUser;
@@ -66,11 +69,14 @@ public class MovieTheatreApplication {
 			screenRepository.save(new Screen(secondTheater, 1));
 
 			// save showtimes
-			// for movies with id 1-4
 			LocalDate date;
 			boolean isAvailable;
 			double price = 9.99;
 			long transactionNumber = 423104921;
+			int randomEmail = 1;
+			String tempEmail = "fake.email@gmail.com";
+
+			// for movies with id 1-4
 			for (Long i = 1L; i <= 4L; i++) {
 
 				// for 3 consecutive days
@@ -100,18 +106,22 @@ public class MovieTheatreApplication {
 						// add tickets to showtimes
 						for (int rowNumber = 3; rowNumber <= 5; rowNumber = rowNumber + 2) {
 							for (int seatNumber = 4; seatNumber <= 6; seatNumber++) {
+								if (randomEmail > 5) {
+									tempEmail = "fake.email" + Integer.toString(randomEmail++) + "@gmail.com";
+								}
+
 								// add transactions
 								Transaction first = new Transaction(transactionNumber++,
 										date.minusDays(5).atTime(20, 23),
-										"fake.email@gmail.com", price);
+										tempEmail, price);
 
 								Transaction second = new Transaction(transactionNumber++,
 										date.minusDays(5).atTime(20, 23),
-										"fake.email@gmail.com", price);
+										"fake.email" + Integer.toString(randomEmail++) + "@gmail.com", price);
 
 								Transaction third = new Transaction(transactionNumber++,
 										date.minusDays(5).atTime(20, 23),
-										"fake.email@gmail.com", price);
+										"fake.email" + Integer.toString(randomEmail++) + "@gmail.com", price);
 
 								transactionRepository.save(first);
 								transactionRepository.save(second);
@@ -145,6 +155,15 @@ public class MovieTheatreApplication {
 			cardRepository.save(new Card("1234123412341234", 123, "Fake User", LocalDate.of(2023, 12, 1),
 					"D6KB9F", "Credit", user));
 
+			// add cancellation credit to user
+			cancellationCreditRepository.save(new CancellationCredit(LocalDate.of(2023, 2, 3), price, "code1", user));
+			cancellationCreditRepository.save(new CancellationCredit(LocalDate.of(2023, 4, 13), price, "code2", user));
+
+			for (int i = 3; i <= 10; i++) {
+				cancellationCreditRepository.save(new CancellationCredit(LocalDate.of(2023, 7, 13),
+						BigDecimal.valueOf(price * 0.85).setScale(2, RoundingMode.HALF_DOWN).doubleValue(),
+						"code" + Integer.toString(i), null));
+			}
 		};
 	}
 }

@@ -561,6 +561,165 @@
 					"body": "{\n    \"id\": 125,\n    \"price\": 9.99,\n    \"showtime\": {\n        \"id\": 20,\n        \"movie\": {\n            \"id\": 1,\n            \"title\": \"Black Panther: Wakanda Forever\",\n            \"releaseDate\": \"2022-11-11\",\n            \"director\": \"Ryan Coogler\",\n            \"genre\": \"Action\",\n            \"public\": true,\n            \"active\": true\n        },\n        \"date\": \"2022-12-15\",\n        \"time\": \"20:30:00\",\n        \"screen\": {\n            \"id\": 2,\n            \"screenNum\": 2\n        }\n    },\n    \"seatNum\": 6,\n    \"rowNum\": 5,\n    \"cancelled\": false\n}"
 				}
 			]
+		},
+		{
+			"name": "TicketsByEmail",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": [
+				{
+					"name": "TicketsByEmail",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/ticket/email/fake.email@gmail.com",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ticket",
+								"email",
+								"fake.email@gmail.com"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Disposition",
+							"value": "inline;filename=f.txt"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 30 Nov 2022 23:27:44 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 1,\n        \"price\": 9.99,\n        \"showtime\": {\n            \"id\": 1,\n            \"movie\": {\n                \"id\": 1,\n                \"title\": \"Black Panther: Wakanda Forever\",\n                \"releaseDate\": \"2022-11-11\",\n                \"director\": \"Ryan Coogler\",\n                \"genre\": \"Action\",\n                \"public\": true,\n                \"active\": true\n            },\n            \"date\": \"2022-12-14\",\n            \"time\": \"19:00:00\",\n            \"screen\": {\n                \"id\": 1,\n                \"screenNum\": 1\n            }\n        },\n        \"seatNum\": 4,\n        \"rowNum\": 3,\n        \"transaction\": {\n            \"id\": 1,\n            \"number\": 423104921,\n            \"date\": \"2022-12-09T20:23:00\",\n            \"userEmail\": \"fake.email@gmail.com\",\n            \"totalPrice\": 9.99\n        },\n        \"cancelled\": false\n    },\n    {\n        \"id\": 4,\n        \"price\": 9.99,\n        \"showtime\": {\n            \"id\": 1,\n            \"movie\": {\n                \"id\": 1,\n                \"title\": \"Black Panther: Wakanda Forever\",\n                \"releaseDate\": \"2022-11-11\",\n                \"director\": \"Ryan Coogler\",\n                \"genre\": \"Action\",\n                \"public\": true,\n                \"active\": true\n            },\n            \"date\": \"2022-12-14\",\n            \"time\": \"19:00:00\",\n            \"screen\": {\n                \"id\": 1,\n                \"screenNum\": 1\n            }\n        },\n        \"seatNum\": 5,\n        \"rowNum\": 3,\n        \"transaction\": {\n            \"id\": 4,\n            \"number\": 423104924,\n            \"date\": \"2022-12-09T20:23:00\",\n            \"userEmail\": \"fake.email@gmail.com\",\n            \"totalPrice\": 9.99\n        },\n        \"cancelled\": false\n    },\n    {\n        \"id\": 7,\n        \"price\": 9.99,\n        \"showtime\": {\n            \"id\": 1,\n            \"movie\": {\n                \"id\": 1,\n                \"title\": \"Black Panther: Wakanda Forever\",\n                \"releaseDate\": \"2022-11-11\",\n                \"director\": \"Ryan Coogler\",\n                \"genre\": \"Action\",\n                \"public\": true,\n                \"active\": true\n            },\n            \"date\": \"2022-12-14\",\n            \"time\": \"19:00:00\",\n            \"screen\": {\n                \"id\": 1,\n                \"screenNum\": 1\n            }\n        },\n        \"seatNum\": 6,\n        \"rowNum\": 3,\n        \"transaction\": {\n            \"id\": 7,\n            \"number\": 423104927,\n            \"date\": \"2022-12-09T20:23:00\",\n            \"userEmail\": \"fake.email@gmail.com\",\n            \"totalPrice\": 9.99\n        },\n        \"cancelled\": false\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Login/GetUser",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": [
+				{
+					"name": "Login/GetUser",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/RegisteredUser/fake.email@gmail.com/admin",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"RegisteredUser",
+								"fake.email@gmail.com",
+								"admin"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 30 Nov 2022 23:33:05 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"email\": \"fake.email@gmail.com\",\n    \"name\": \"Fake User\",\n    \"address\": \"Nice Address, Calgary, AB, Canada\",\n    \"paymentCards\": [\n        {\n            \"id\": 1,\n            \"cvv\": 123,\n            \"nameOfHolder\": \"Fake User\",\n            \"expiryDate\": \"2023-12-01\",\n            \"billingPostal\": \"D6KB9F\",\n            \"type\": \"Credit\",\n            \"lastFourDigits\": \"1234\"\n        }\n    ],\n    \"cancellationCredits\": [\n        {\n            \"id\": 1,\n            \"expiryDate\": \"2023-02-03\",\n            \"creditValue\": 9.99,\n            \"creditCode\": \"code1\"\n        },\n        {\n            \"id\": 2,\n            \"expiryDate\": \"2023-04-13\",\n            \"creditValue\": 9.99,\n            \"creditCode\": \"code2\"\n        }\n    ]\n}"
+				},
+				{
+					"name": "Login/GetUser rejected",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/RegisteredUser/fake.email@gmail.com/adm1in",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"RegisteredUser",
+								"fake.email@gmail.com",
+								"adm1in"
+							]
+						}
+					},
+					"status": "Internal Server Error",
+					"code": 500,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 30 Nov 2022 23:33:16 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"timestamp\": \"2022-11-30T23:33:16.469+00:00\",\n    \"status\": 500,\n    \"error\": \"Internal Server Error\",\n    \"message\": \"Invalid credentials\",\n    \"path\": \"/RegisteredUser/fake.email@gmail.com/adm1in\"\n}"
+				}
+			]
 		}
 	]
 }

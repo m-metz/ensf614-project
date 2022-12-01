@@ -53,6 +53,10 @@ public class TicketService {
         return ticket.get();
     }
 
+    public List<Ticket> getTicketsForUser(String email) {
+        return ticketRepository.getTicketsByTransactionEmail(email);
+    }
+
     private class Seat {
         private int rowNum;
 

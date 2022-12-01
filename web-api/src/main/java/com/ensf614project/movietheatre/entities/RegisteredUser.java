@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
 
 import org.springframework.lang.Nullable;
 
@@ -28,13 +29,12 @@ public class RegisteredUser {
     private String password;
 
     @Nullable
-    @JsonIgnore
     @OneToMany(mappedBy = "registeredUser")
     private Set<Card> paymentCards;
 
     @Nullable
-    @JsonIgnore
     @OneToMany(mappedBy = "registeredUser")
+    @OrderBy("expiryDate ASC")
     private Set<CancellationCredit> cancellationCredits;
 
     public RegisteredUser() {
@@ -93,6 +93,14 @@ public class RegisteredUser {
 
     public void setPaymentCards(Set<Card> paymentCards) {
         this.paymentCards = paymentCards;
+    }
+
+    public Set<CancellationCredit> getCancellationCredits() {
+        return cancellationCredits;
+    }
+
+    public void setCancellationCredits(Set<CancellationCredit> cancellationCredits) {
+        this.cancellationCredits = cancellationCredits;
     }
 
 }
