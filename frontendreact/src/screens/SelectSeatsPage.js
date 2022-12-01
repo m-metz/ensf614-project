@@ -1,5 +1,7 @@
 import SeatView from "../components/SeatView";
 import { Grid } from "@mui/material";
+import { Button } from "@mui/material";
+import { Box } from "@mui/material";
 
 const seats = [];
 
@@ -8,7 +10,7 @@ function PopulateSeats() {
   let isAvailable = true; // set as true by default, but can be modified based on JSON output
   for (let rowNum = 1; rowNum < 11; rowNum++) {
     for (let seatNum = 1; seatNum < 11; seatNum++) {
-      seats.push({ seatNum: seatId, rowNum: rowNum , isAvailable: isAvailable});
+      seats.push({ seatNum: seatId, rowNum: rowNum, isAvailable: isAvailable });
       seatId++;
     }
   }
@@ -26,7 +28,11 @@ function SelectSeatsPage() {
         }{" "}
       </h5>
 
-      <Grid container>
+      <Grid
+        container
+        // direction="column"
+        // justifyContent="center"
+      >
         <Grid
           item
           xs={3}
@@ -36,6 +42,11 @@ function SelectSeatsPage() {
           xs={6}
         >
           <SeatView seats={seats} />
+          <Box
+            padding={"2rem"}
+          >
+            <Button variant="contained">Confirm Selection</Button>
+          </Box>
         </Grid>
         <Grid item></Grid>
       </Grid>
