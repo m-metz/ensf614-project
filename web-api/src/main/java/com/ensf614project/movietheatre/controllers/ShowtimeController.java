@@ -3,7 +3,6 @@ package com.ensf614project.movietheatre.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,7 +13,6 @@ import com.ensf614project.movietheatre.services.TicketService;
 
 @RestController
 @RequestMapping(path = "/showtime")
-@CrossOrigin
 public class ShowtimeController {
     private final ShowtimeService showtimeService;
     private final TicketService ticketService;

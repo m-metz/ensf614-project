@@ -9,4 +9,6 @@ import com.ensf614project.movietheatre.entities.RegisteredUser;
 public interface RegisteredUserRepository extends JpaRepository<RegisteredUser, Long> {
 
     RegisteredUser findRegisteredUserByEmailAndPassword(String email, String password);
+
+    RegisteredUser findRegisteredUserByEmail(String email);
 }

@@ -29,6 +29,8 @@ public class Movie {
 
     private String genre;
 
+    private String image;
+
     public Movie() {
     }
 
@@ -40,13 +42,14 @@ public class Movie {
     }
 
     public Movie(String title, LocalDate releaseDate, String director, boolean isPublic, boolean isActive,
-            String genre) {
+            String genre, String image) {
         this.title = title;
         this.releaseDate = releaseDate;
         this.director = director;
         this.isPublic = isPublic;
         this.isActive = isActive;
         this.genre = genre;
+        this.image = image;
     }
 
     public long getId() {
@@ -103,6 +106,14 @@ public class Movie {
 
     public void setGenre(String genre) {
         this.genre = genre;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
 }
