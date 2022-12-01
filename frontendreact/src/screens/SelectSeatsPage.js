@@ -16,6 +16,11 @@ function PopulateSeats() {
   }
   console.log(seats);
 }
+
+function ConfirmSelection(){
+        window.location.pathway = '/buyticketspage';
+        window.location.href = window.location.pathway;
+}
 function SelectSeatsPage() {
   PopulateSeats();
   return (
@@ -45,7 +50,7 @@ function SelectSeatsPage() {
           <Box
             padding={"2rem"}
           >
-            <Button variant="contained">Confirm Selection</Button>
+            <Button variant="contained" onClick={ConfirmSelection}>Confirm Selection</Button>
           </Box>
         </Grid>
         <Grid item></Grid>
