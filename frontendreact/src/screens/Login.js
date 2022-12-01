@@ -41,7 +41,7 @@ function Login() {
             <br></br><br></br>
             <span>
             <button className='btn' onClick={confirmHandler}>Log In</button>
-            <button className='btn btn--alt' onClick={cancelHandler}>Cancel</button>        
+            <button className='btn btn--alt' onClick={cancelHandler}>Return to Home</button>        
         </span>
         </form><br></br>
         </div>

@@ -9,6 +9,8 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import com.ensf614project.movietheatre.entities.CancellationCredit;
 import com.ensf614project.movietheatre.entities.Card;
@@ -35,6 +37,15 @@ public class MovieTheatreApplication {
 		SpringApplication.run(MovieTheatreApplication.class, args);
 	}
 
+	public WebMvcConfigurer corsConfigurer() {
+		return new WebMvcConfigurer() {
+			@Override
+			public void addCorsMappings(CorsRegistry registry) {
+				registry.addMapping("/**").allowedOrigins("*");
+			}
+		};
+	}
+
 	@Bean
 	public CommandLineRunner demo(MovieRepository movieRepository, TheatreRepository theatreRepository,
 			ScreenRepository screenRepository, ShowtimeRepository showtimeRepository,
@@ -44,16 +55,16 @@ public class MovieTheatreApplication {
 		return (args) -> {
 			// save movies
 			movieRepository.save(new Movie("Black Panther: Wakanda Forever", LocalDate.of(2022, 11, 11), "Ryan Coogler",
-					true, true, "Action"));
-			movieRepository.save(new Movie("The Lord of the Rings: The Fellowship of the Ring",
-					LocalDate.of(2001, 12, 10), "Peter Jackson",
-					true, true, "Adventure"));
+					true, true, "Action", "blackpantherwakandaforever_lob_crd_05.jpg"));
+			movieRepository.save(new Movie("Spider-Man: Homecoming",
+					LocalDate.of(2017, 6, 28), "Jon Watts",
+					true, true, "Adventure", "spider-manhomecoming_lob_crd_01_4.jpg"));
 			movieRepository.save(new Movie("The Matrix",
 					LocalDate.of(1999, 3, 31), "Lana Wachowski, Lilly Wachowski",
-					true, false, "Action"));
+					true, false, "Action", "Matrix_2000x3000.jpg"));
 			movieRepository.save(new Movie("Avatar: The Way of Water",
 					LocalDate.of(2022, 12, 16), "James Cameron",
-					false, true, "Adventure"));
+					false, true, "Adventure", "Avatar-the-way-of-water-official poster.jpg"));
 
 			// save theaters
 			Theatre firstTheater = new Theatre("Scotiabank Theatre Chinook",
@@ -70,7 +81,6 @@ public class MovieTheatreApplication {
 
 			// save showtimes
 			LocalDate date;
-			boolean isAvailable;
 			double price = 9.99;
 			long transactionNumber = 423104921;
 			int randomEmail = 1;

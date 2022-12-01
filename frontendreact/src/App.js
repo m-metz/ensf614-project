@@ -13,6 +13,8 @@ import SelectSeatsPage from './screens/SelectSeatsPage';
 import Logout from './screens/Logout';
 import {useApplicationContextState } from './context';
 import Modal from 'react-modal';
+import Prerelease from './screens/Prerelease';
+import CancelTicket from './screens/CancelTicketsPage';
 
 
 function App() {
@@ -43,9 +45,14 @@ function App() {
     case '/logout':
       component = <Logout/>;
       break
+    case '/prerelease':
+      component=<Prerelease />;
+      break
+    case '/cancelticket':
+      component=<CancelTicket/>
+      break
   }
 
-  debugger;
   const email = sessionStorage.getItem("currentEmail");
   const isLoggedIn = email !== null && email !== 'null';
   //localhost:3000/
