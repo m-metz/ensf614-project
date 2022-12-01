@@ -4,7 +4,7 @@ import SearchCard from'../components/SearchCard';
 import {Grid} from '@mui/material';
 import { getFetch } from '../fetch';
 
-//This should be the getALLMovies API
+//This should be the getALLMoviesAPI
 let movieList = getFetch();
 const dummyMovieData = [
     {
@@ -44,6 +44,20 @@ const dummyMovieData = [
     },
     {
         id: '6',
+        title: "Deadpool",
+        image: "https://terrigen-cdn-dev.marvel.com/content/prod/1x/deadpool_lob_crd_02.jpg",
+        description: "Ryan reynolds doing hot boy stuff",
+        Rating: "3"
+    },
+    {
+        id: '7',
+        title: "GetSmart",
+        image: "https://terrigen-cdn-dev.marvel.com/content/prod/1x/captainmarvel_lob_crd_06.jpg",
+        description: "Element of surprise",
+        Rating: "3"
+    },
+    {
+        id: '8',
         title: "Deadpool",
         image: "https://terrigen-cdn-dev.marvel.com/content/prod/1x/deadpool_lob_crd_02.jpg",
         description: "Ryan reynolds doing hot boy stuff",

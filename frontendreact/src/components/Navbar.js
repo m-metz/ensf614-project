@@ -26,8 +26,11 @@ export default function Navbar(props) {
                     <a href="/login">Login </a>
                 </li></>
                 )}
-            <li>
+            {/* <li>
                 <a href="/admin">Administrator Mode </a>
+            </li> */}
+            <li>
+                <a href="/cancelticket">Cancel Ticket </a>
             </li>
         </ul>
     </nav>

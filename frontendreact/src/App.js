@@ -14,6 +14,7 @@ import Logout from './screens/Logout';
 import {useApplicationContextState } from './context';
 import Modal from 'react-modal';
 import Prerelease from './screens/Prerelease';
+import CancelTicket from './screens/CancelTicketsPage';
 
 
 function App() {
@@ -46,6 +47,9 @@ function App() {
       break
     case '/prerelease':
       component=<Prerelease />;
+      break
+    case '/cancelticket':
+      component=<CancelTicket/>
       break
   }
 
