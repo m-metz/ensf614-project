@@ -16,7 +16,8 @@ function Register(props) {
         evt.preventDefault();
         let registerForm = document.getElementById('registerForm');
         //post all information to server
-        window.location.pathway = '/';
+        alert("Thanks for registering! You will be redirected to the login page now");
+        window.location.pathway = '/login';
         window.location.href = window.location.pathway;
     }
 
@@ -55,7 +56,6 @@ function Register(props) {
         </div>
         <div>
             <Backdrop />
-            <Homepage zindex="-30"/>
         </div>
     </div>
 

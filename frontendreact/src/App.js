@@ -10,23 +10,23 @@ import Login from './screens/Login';
 import Navbar from './components/Navbar';
 import BuyTicketsPage from './screens/BuyTicketsPage';
 import SelectSeatsPage from './screens/SelectSeatsPage';
+import Logout from './screens/Logout';
+import {useApplicationContextState } from './context';
+import Modal from 'react-modal';
+
 
 function App() {
-
-  const [loggedIn, setLoggedIn] = useState(false);
-  let currentEmail = sessionStorage.getItem("currentEmail");
-  console.log(currentEmail);
 
   let component;
   switch(window.location.pathname) {
     case "/":
       component = <Homepage />;
       break
-    case "/login":
-      component = <Login />;
-      break
     case "/register":
       component = <Register />;
+      break
+      case "/login":
+      component = <Login/>;
       break
     case "/admin":
       component = <Admin />;
@@ -40,12 +40,18 @@ function App() {
     case '/selectseatspage':
       component = <SelectSeatsPage />;
       break
+    case '/logout':
+      component = <Logout/>;
+      break
   }
 
+  debugger;
+  const email = sessionStorage.getItem("currentEmail");
+  const isLoggedIn = email !== null && email !== 'null';
   //localhost:3000/
   return (
     <div>
-      <Navbar loggedIn={false}/>
+      <Navbar loggedIn={isLoggedIn}/> 
       {component}
 
     </div>
