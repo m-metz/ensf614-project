@@ -31,7 +31,7 @@ export default function CancelTicketPage() {
         <br></br><br></br>
         <label>Enter your ticket number: </label>
         <input type="text" id="ticketnum" name="ticketnum" required></input>
-        <br></br><br></br>
+        <br></br><br></br><br></br>
         <span>
         <button className='btn' onClick={cancelHandler}>Submit Cancellation</button>       
     </span>

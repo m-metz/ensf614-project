@@ -15,6 +15,7 @@ import {useApplicationContextState } from './context';
 import Modal from 'react-modal';
 import Prerelease from './screens/Prerelease';
 import CancelTicket from './screens/CancelTicketsPage';
+import PayMembership from './screens/PayMembership';
 
 
 function App() {
@@ -50,6 +51,9 @@ function App() {
       break
     case '/cancelticket':
       component=<CancelTicket/>
+      break
+    case '/payFee':
+      component=<PayMembership/>
       break
   }
 

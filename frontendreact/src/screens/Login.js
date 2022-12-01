@@ -16,6 +16,7 @@ function Login() {
         //Change state to logged in
 
         sessionStorage.setItem("currentEmail", loginForm.email.value);
+        sessionStorage.setItem("currentPassword", loginForm.password.value);
         console.log(`current email ${sessionStorage.getItem("currentEmail")}`);
         window.location.pathway = '/';
         window.location.href = window.location.pathway;
