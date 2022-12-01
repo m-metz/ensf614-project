@@ -2,7 +2,7 @@ import Movielist from '../components/Movielist';
 import { getFetch } from '../fetch';
 import {useState} from 'react';
 
-//TODO: Fetch allMovies
+//TODO: Fetch allMovies that are active and public
 const dummyMovieData = [
     {
         id: '1',
