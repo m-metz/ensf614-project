@@ -57,6 +57,11 @@ public class TicketService {
         return ticketRepository.getTicketsByTransactionEmail(email);
     }
 
+    public void cancelTicket(Ticket ticket) {
+        ticket.setCancelled(true);
+        ticketRepository.save(ticket);
+    }
+
     private class Seat {
         private int rowNum;
 

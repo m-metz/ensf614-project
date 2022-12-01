@@ -24,4 +24,10 @@ public class RegisteredUserService {
         return RegisteredUser;
     }
 
+    public RegisteredUser getRegisteredUserByEmail(String email) {
+        RegisteredUser RegisteredUser = registeredUserRepository.findRegisteredUserByEmail(email);
+
+        return RegisteredUser;
+    }
+
 }

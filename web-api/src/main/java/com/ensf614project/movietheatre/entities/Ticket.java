@@ -1,5 +1,7 @@
 package com.ensf614project.movietheatre.entities;
 
+import java.time.LocalDateTime;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -8,6 +10,7 @@ import javax.persistence.ManyToOne;
 
 import org.springframework.lang.NonNull;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
@@ -44,6 +47,21 @@ public class Ticket {
         this.seatNum = seatNum;
         this.rowNum = rowNum;
         this.transaction = transaction;
+    }
+
+    @JsonIgnore
+    public String getUserEmail() {
+        return transaction.getUserEmail();
+    }
+
+    @JsonIgnore
+    public LocalDateTime getShowtimeDateTime() {
+        return showtime.getDate().atTime(showtime.getTime());
+    }
+
+    @JsonIgnore
+    public LocalDateTime getTransactionDate() {
+        return transaction.getDate();
     }
 
     public long getId() {
