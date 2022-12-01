@@ -5,9 +5,11 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { Button, CardActionArea } from "@mui/material";
-
+import {useState} from 'react';
 let seatList = [];
 let buttonVariant = "";
+
+const [selected, setselected] = useState(second);
 function Seat(props) {
   function seatSelectHandler() {
     console.log(props.seatNum);
@@ -29,9 +31,7 @@ function Seat(props) {
     <Button
       variant={buttonVariant}
       onClick={seatSelectHandler}
-    //   fullWidth="false"
-    //   style={{maxWidth: '10px', fullWidth: "false"}}
-    sx={{width: "1em"}}
+      sx={{ width: "1em" }}
     >
       {props.seatNum}
     </Button>
