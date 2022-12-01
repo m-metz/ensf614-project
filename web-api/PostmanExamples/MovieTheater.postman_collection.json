@@ -48,6 +48,18 @@
 					"_postman_previewlanguage": "json",
 					"header": [
 						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
 							"key": "Content-Type",
 							"value": "application/json"
 						},
@@ -57,7 +69,7 @@
 						},
 						{
 							"key": "Date",
-							"value": "Sun, 27 Nov 2022 22:07:11 GMT"
+							"value": "Thu, 01 Dec 2022 05:09:34 GMT"
 						},
 						{
 							"key": "Keep-Alive",
@@ -69,7 +81,7 @@
 						}
 					],
 					"cookie": [],
-					"body": "[\n    {\n        \"id\": 1,\n        \"title\": \"Black Panther: Wakanda Forever\",\n        \"releaseDate\": \"2022-11-11\",\n        \"director\": \"Ryan Coogler\",\n        \"genre\": \"Action\",\n        \"public\": true,\n        \"active\": true\n    },\n    {\n        \"id\": 2,\n        \"title\": \"The Lord of the Rings: The Fellowship of the Ring\",\n        \"releaseDate\": \"2001-12-10\",\n        \"director\": \"Peter Jackson\",\n        \"genre\": \"Adventure\",\n        \"public\": true,\n        \"active\": true\n    },\n    {\n        \"id\": 3,\n        \"title\": \"The Matrix\",\n        \"releaseDate\": \"1999-03-31\",\n        \"director\": \"Lana Wachowski, Lilly Wachowski\",\n        \"genre\": \"Action\",\n        \"public\": true,\n        \"active\": false\n    },\n    {\n        \"id\": 4,\n        \"title\": \"Avatar: The Way of Water\",\n        \"releaseDate\": \"2022-12-16\",\n        \"director\": \"James Cameron\",\n        \"genre\": \"Adventure\",\n        \"public\": false,\n        \"active\": true\n    }\n]"
+					"body": "[\n    {\n        \"id\": 1,\n        \"title\": \"Black Panther: Wakanda Forever\",\n        \"releaseDate\": \"2022-11-11\",\n        \"director\": \"Ryan Coogler\",\n        \"genre\": \"Action\",\n        \"image\": \"blackpantherwakandaforever_lob_crd_05.jpg\",\n        \"public\": true,\n        \"active\": true\n    },\n    {\n        \"id\": 2,\n        \"title\": \"Spider-Man: Homecoming\",\n        \"releaseDate\": \"2017-06-28\",\n        \"director\": \"Jon Watts\",\n        \"genre\": \"Adventure\",\n        \"image\": \"spider-manhomecoming_lob_crd_01_4.jpg\",\n        \"public\": true,\n        \"active\": true\n    },\n    {\n        \"id\": 3,\n        \"title\": \"The Matrix\",\n        \"releaseDate\": \"1999-03-31\",\n        \"director\": \"Lana Wachowski, Lilly Wachowski\",\n        \"genre\": \"Action\",\n        \"image\": \"Matrix_2000x3000.jpg\",\n        \"public\": true,\n        \"active\": false\n    },\n    {\n        \"id\": 4,\n        \"title\": \"Avatar: The Way of Water\",\n        \"releaseDate\": \"2022-12-16\",\n        \"director\": \"James Cameron\",\n        \"genre\": \"Adventure\",\n        \"image\": \"Avatar-the-way-of-water-official poster.jpg\",\n        \"public\": false,\n        \"active\": true\n    }\n]"
 				}
 			]
 		},
@@ -117,6 +129,18 @@
 					"_postman_previewlanguage": "json",
 					"header": [
 						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
 							"key": "Content-Type",
 							"value": "application/json"
 						},
@@ -126,7 +150,7 @@
 						},
 						{
 							"key": "Date",
-							"value": "Sun, 27 Nov 2022 22:07:56 GMT"
+							"value": "Thu, 01 Dec 2022 05:09:41 GMT"
 						},
 						{
 							"key": "Keep-Alive",
@@ -138,7 +162,7 @@
 						}
 					],
 					"cookie": [],
-					"body": "[\n    {\n        \"id\": 1,\n        \"title\": \"Black Panther: Wakanda Forever\",\n        \"releaseDate\": \"2022-11-11\",\n        \"director\": \"Ryan Coogler\",\n        \"genre\": \"Action\",\n        \"public\": true,\n        \"active\": true\n    },\n    {\n        \"id\": 2,\n        \"title\": \"The Lord of the Rings: The Fellowship of the Ring\",\n        \"releaseDate\": \"2001-12-10\",\n        \"director\": \"Peter Jackson\",\n        \"genre\": \"Adventure\",\n        \"public\": true,\n        \"active\": true\n    },\n    {\n        \"id\": 4,\n        \"title\": \"Avatar: The Way of Water\",\n        \"releaseDate\": \"2022-12-16\",\n        \"director\": \"James Cameron\",\n        \"genre\": \"Adventure\",\n        \"public\": false,\n        \"active\": true\n    }\n]"
+					"body": "[\n    {\n        \"id\": 1,\n        \"title\": \"Black Panther: Wakanda Forever\",\n        \"releaseDate\": \"2022-11-11\",\n        \"director\": \"Ryan Coogler\",\n        \"genre\": \"Action\",\n        \"image\": \"blackpantherwakandaforever_lob_crd_05.jpg\",\n        \"public\": true,\n        \"active\": true\n    },\n    {\n        \"id\": 2,\n        \"title\": \"Spider-Man: Homecoming\",\n        \"releaseDate\": \"2017-06-28\",\n        \"director\": \"Jon Watts\",\n        \"genre\": \"Adventure\",\n        \"image\": \"spider-manhomecoming_lob_crd_01_4.jpg\",\n        \"public\": true,\n        \"active\": true\n    },\n    {\n        \"id\": 4,\n        \"title\": \"Avatar: The Way of Water\",\n        \"releaseDate\": \"2022-12-16\",\n        \"director\": \"James Cameron\",\n        \"genre\": \"Adventure\",\n        \"image\": \"Avatar-the-way-of-water-official poster.jpg\",\n        \"public\": false,\n        \"active\": true\n    }\n]"
 				}
 			]
 		},
@@ -188,6 +212,18 @@
 					"_postman_previewlanguage": "json",
 					"header": [
 						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
 							"key": "Content-Type",
 							"value": "application/json"
 						},
@@ -197,7 +233,7 @@
 						},
 						{
 							"key": "Date",
-							"value": "Sun, 27 Nov 2022 22:08:45 GMT"
+							"value": "Thu, 01 Dec 2022 05:09:56 GMT"
 						},
 						{
 							"key": "Keep-Alive",
@@ -209,7 +245,7 @@
 						}
 					],
 					"cookie": [],
-					"body": "[\n    {\n        \"id\": 1,\n        \"title\": \"Black Panther: Wakanda Forever\",\n        \"releaseDate\": \"2022-11-11\",\n        \"director\": \"Ryan Coogler\",\n        \"genre\": \"Action\",\n        \"public\": true,\n        \"active\": true\n    },\n    {\n        \"id\": 2,\n        \"title\": \"The Lord of the Rings: The Fellowship of the Ring\",\n        \"releaseDate\": \"2001-12-10\",\n        \"director\": \"Peter Jackson\",\n        \"genre\": \"Adventure\",\n        \"public\": true,\n        \"active\": true\n    }\n]"
+					"body": "[\n    {\n        \"id\": 1,\n        \"title\": \"Black Panther: Wakanda Forever\",\n        \"releaseDate\": \"2022-11-11\",\n        \"director\": \"Ryan Coogler\",\n        \"genre\": \"Action\",\n        \"image\": \"blackpantherwakandaforever_lob_crd_05.jpg\",\n        \"public\": true,\n        \"active\": true\n    },\n    {\n        \"id\": 2,\n        \"title\": \"Spider-Man: Homecoming\",\n        \"releaseDate\": \"2017-06-28\",\n        \"director\": \"Jon Watts\",\n        \"genre\": \"Adventure\",\n        \"image\": \"spider-manhomecoming_lob_crd_01_4.jpg\",\n        \"public\": true,\n        \"active\": true\n    }\n]"
 				}
 			]
 		},
@@ -537,6 +573,18 @@
 					"_postman_previewlanguage": "json",
 					"header": [
 						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
 							"key": "Content-Type",
 							"value": "application/json"
 						},
@@ -546,7 +594,7 @@
 						},
 						{
 							"key": "Date",
-							"value": "Mon, 28 Nov 2022 05:20:30 GMT"
+							"value": "Thu, 01 Dec 2022 05:10:34 GMT"
 						},
 						{
 							"key": "Keep-Alive",
@@ -558,7 +606,7 @@
 						}
 					],
 					"cookie": [],
-					"body": "{\n    \"id\": 125,\n    \"price\": 9.99,\n    \"showtime\": {\n        \"id\": 20,\n        \"movie\": {\n            \"id\": 1,\n            \"title\": \"Black Panther: Wakanda Forever\",\n            \"releaseDate\": \"2022-11-11\",\n            \"director\": \"Ryan Coogler\",\n            \"genre\": \"Action\",\n            \"public\": true,\n            \"active\": true\n        },\n        \"date\": \"2022-12-15\",\n        \"time\": \"20:30:00\",\n        \"screen\": {\n            \"id\": 2,\n            \"screenNum\": 2\n        }\n    },\n    \"seatNum\": 6,\n    \"rowNum\": 5,\n    \"cancelled\": false\n}"
+					"body": "{\n    \"id\": 125,\n    \"price\": 9.99,\n    \"showtime\": {\n        \"id\": 20,\n        \"movie\": {\n            \"id\": 1,\n            \"title\": \"Black Panther: Wakanda Forever\",\n            \"releaseDate\": \"2022-11-11\",\n            \"director\": \"Ryan Coogler\",\n            \"genre\": \"Action\",\n            \"image\": \"blackpantherwakandaforever_lob_crd_05.jpg\",\n            \"public\": true,\n            \"active\": true\n        },\n        \"date\": \"2022-12-15\",\n        \"time\": \"20:30:00\",\n        \"screen\": {\n            \"id\": 2,\n            \"screenNum\": 2\n        }\n    },\n    \"seatNum\": 6,\n    \"rowNum\": 5,\n    \"transaction\": {\n        \"id\": 125,\n        \"number\": 423105045,\n        \"date\": \"2022-12-10T20:23:00\",\n        \"userEmail\": \"fake.email122@gmail.com\",\n        \"totalPrice\": 9.99\n    },\n    \"cancelled\": false\n}"
 				}
 			]
 		},
@@ -593,6 +641,18 @@
 					"_postman_previewlanguage": "json",
 					"header": [
 						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
 							"key": "Content-Disposition",
 							"value": "inline;filename=f.txt"
 						},
@@ -606,7 +666,7 @@
 						},
 						{
 							"key": "Date",
-							"value": "Wed, 30 Nov 2022 23:27:44 GMT"
+							"value": "Thu, 01 Dec 2022 05:10:41 GMT"
 						},
 						{
 							"key": "Keep-Alive",
@@ -618,7 +678,7 @@
 						}
 					],
 					"cookie": [],
-					"body": "[\n    {\n        \"id\": 1,\n        \"price\": 9.99,\n        \"showtime\": {\n            \"id\": 1,\n            \"movie\": {\n                \"id\": 1,\n                \"title\": \"Black Panther: Wakanda Forever\",\n                \"releaseDate\": \"2022-11-11\",\n                \"director\": \"Ryan Coogler\",\n                \"genre\": \"Action\",\n                \"public\": true,\n                \"active\": true\n            },\n            \"date\": \"2022-12-14\",\n            \"time\": \"19:00:00\",\n            \"screen\": {\n                \"id\": 1,\n                \"screenNum\": 1\n            }\n        },\n        \"seatNum\": 4,\n        \"rowNum\": 3,\n        \"transaction\": {\n            \"id\": 1,\n            \"number\": 423104921,\n            \"date\": \"2022-12-09T20:23:00\",\n            \"userEmail\": \"fake.email@gmail.com\",\n            \"totalPrice\": 9.99\n        },\n        \"cancelled\": false\n    },\n    {\n        \"id\": 4,\n        \"price\": 9.99,\n        \"showtime\": {\n            \"id\": 1,\n            \"movie\": {\n                \"id\": 1,\n                \"title\": \"Black Panther: Wakanda Forever\",\n                \"releaseDate\": \"2022-11-11\",\n                \"director\": \"Ryan Coogler\",\n                \"genre\": \"Action\",\n                \"public\": true,\n                \"active\": true\n            },\n            \"date\": \"2022-12-14\",\n            \"time\": \"19:00:00\",\n            \"screen\": {\n                \"id\": 1,\n                \"screenNum\": 1\n            }\n        },\n        \"seatNum\": 5,\n        \"rowNum\": 3,\n        \"transaction\": {\n            \"id\": 4,\n            \"number\": 423104924,\n            \"date\": \"2022-12-09T20:23:00\",\n            \"userEmail\": \"fake.email@gmail.com\",\n            \"totalPrice\": 9.99\n        },\n        \"cancelled\": false\n    },\n    {\n        \"id\": 7,\n        \"price\": 9.99,\n        \"showtime\": {\n            \"id\": 1,\n            \"movie\": {\n                \"id\": 1,\n                \"title\": \"Black Panther: Wakanda Forever\",\n                \"releaseDate\": \"2022-11-11\",\n                \"director\": \"Ryan Coogler\",\n                \"genre\": \"Action\",\n                \"public\": true,\n                \"active\": true\n            },\n            \"date\": \"2022-12-14\",\n            \"time\": \"19:00:00\",\n            \"screen\": {\n                \"id\": 1,\n                \"screenNum\": 1\n            }\n        },\n        \"seatNum\": 6,\n        \"rowNum\": 3,\n        \"transaction\": {\n            \"id\": 7,\n            \"number\": 423104927,\n            \"date\": \"2022-12-09T20:23:00\",\n            \"userEmail\": \"fake.email@gmail.com\",\n            \"totalPrice\": 9.99\n        },\n        \"cancelled\": false\n    }\n]"
+					"body": "[\n    {\n        \"id\": 1,\n        \"price\": 9.99,\n        \"showtime\": {\n            \"id\": 1,\n            \"movie\": {\n                \"id\": 1,\n                \"title\": \"Black Panther: Wakanda Forever\",\n                \"releaseDate\": \"2022-11-11\",\n                \"director\": \"Ryan Coogler\",\n                \"genre\": \"Action\",\n                \"image\": \"blackpantherwakandaforever_lob_crd_05.jpg\",\n                \"public\": true,\n                \"active\": true\n            },\n            \"date\": \"2022-12-14\",\n            \"time\": \"19:00:00\",\n            \"screen\": {\n                \"id\": 1,\n                \"screenNum\": 1\n            }\n        },\n        \"seatNum\": 4,\n        \"rowNum\": 3,\n        \"transaction\": {\n            \"id\": 1,\n            \"number\": 423104921,\n            \"date\": \"2022-12-09T20:23:00\",\n            \"userEmail\": \"fake.email@gmail.com\",\n            \"totalPrice\": 9.99\n        },\n        \"cancelled\": false\n    },\n    {\n        \"id\": 4,\n        \"price\": 9.99,\n        \"showtime\": {\n            \"id\": 1,\n            \"movie\": {\n                \"id\": 1,\n                \"title\": \"Black Panther: Wakanda Forever\",\n                \"releaseDate\": \"2022-11-11\",\n                \"director\": \"Ryan Coogler\",\n                \"genre\": \"Action\",\n                \"image\": \"blackpantherwakandaforever_lob_crd_05.jpg\",\n                \"public\": true,\n                \"active\": true\n            },\n            \"date\": \"2022-12-14\",\n            \"time\": \"19:00:00\",\n            \"screen\": {\n                \"id\": 1,\n                \"screenNum\": 1\n            }\n        },\n        \"seatNum\": 5,\n        \"rowNum\": 3,\n        \"transaction\": {\n            \"id\": 4,\n            \"number\": 423104924,\n            \"date\": \"2022-12-09T20:23:00\",\n            \"userEmail\": \"fake.email@gmail.com\",\n            \"totalPrice\": 9.99\n        },\n        \"cancelled\": false\n    },\n    {\n        \"id\": 7,\n        \"price\": 9.99,\n        \"showtime\": {\n            \"id\": 1,\n            \"movie\": {\n                \"id\": 1,\n                \"title\": \"Black Panther: Wakanda Forever\",\n                \"releaseDate\": \"2022-11-11\",\n                \"director\": \"Ryan Coogler\",\n                \"genre\": \"Action\",\n                \"image\": \"blackpantherwakandaforever_lob_crd_05.jpg\",\n                \"public\": true,\n                \"active\": true\n            },\n            \"date\": \"2022-12-14\",\n            \"time\": \"19:00:00\",\n            \"screen\": {\n                \"id\": 1,\n                \"screenNum\": 1\n            }\n        },\n        \"seatNum\": 6,\n        \"rowNum\": 3,\n        \"transaction\": {\n            \"id\": 7,\n            \"number\": 423104927,\n            \"date\": \"2022-12-09T20:23:00\",\n            \"userEmail\": \"fake.email@gmail.com\",\n            \"totalPrice\": 9.99\n        },\n        \"cancelled\": false\n    }\n]"
 				}
 			]
 		},
@@ -720,6 +780,23 @@
 					"body": "{\n    \"timestamp\": \"2022-11-30T23:33:16.469+00:00\",\n    \"status\": 500,\n    \"error\": \"Internal Server Error\",\n    \"message\": \"Invalid credentials\",\n    \"path\": \"/RegisteredUser/fake.email@gmail.com/adm1in\"\n}"
 				}
 			]
+		},
+		{
+			"name": "BuyTicket",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Tickets\": [\r\n        {\r\n            \"showtimeId\": 1,\r\n            \"rowNum\": 1,\r\n            \"seatNum\": 1,\r\n        }\r\n    ]\r\n\r\n    \"paymentCards\": {\r\n        \"number\": \"1234\",\r\n        \"cvv\": 123,\r\n        \"nameOfHolder\": \"Fake User\",\r\n        \"expiryDate\": \"2023-12-01\",\r\n        \"billingPostal\": \"D6KB9F\",\r\n        \"type\": \"Credit\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				}
+			},
+			"response": []
 		}
 	]
 }
