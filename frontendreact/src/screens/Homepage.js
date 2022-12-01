@@ -1,4 +1,8 @@
 import Movielist from '../components/Movielist';
+import { getFetch } from '../fetch';
+
+let publicMoviesList = getFetch("http://localhost:8080/movie/all/active/public");
+console.log(publicMoviesList);
 
 //TODO: Fetch allMovies
 const dummyMovieData = [

@@ -2,7 +2,10 @@
 import Movie from'../components/Movie';
 import SearchCard from'../components/SearchCard';
 import {Grid} from '@mui/material';
+import { getFetch } from '../fetch';
 
+//This should be the getALLMovies API
+let movieList = getFetch();
 const dummyMovieData = [
     {
         id: '1',
