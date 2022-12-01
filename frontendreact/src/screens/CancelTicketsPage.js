@@ -1,4 +1,5 @@
 import { getFetch } from '../fetch';
+import { postFetch } from '../fetch'
 
 export default function CancelTicketPage() {
 
@@ -7,7 +8,16 @@ export default function CancelTicketPage() {
         let ticketNum = cancelForm.ticketnum.value;
         //getTickettoCheckIfValid
         let ticket = await getFetch("http://localhost:8080/ticket/"+ticketNum);
+
         console.log(ticket);
+        if(ticket['error'] == "Internal Server Error") {
+            alert("Invalid ticket number. Please try again!");
+            return -1;
+        }
+
+        //UPDATE API ADDRESS
+        //postFetch("CANCEL", ticket);
+
     }
 
     return (<div  className="card">

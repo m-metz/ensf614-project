@@ -67,6 +67,7 @@ const dummyMovieData = [
 ]
 
 const currentMovieId = sessionStorage.getItem("currentMovieId");
+console.log(currentMovieId);
 
 function Moviepage() {
     function currentMovie() {

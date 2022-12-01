@@ -3,19 +3,19 @@ export async function getFetch(api) {
         return response.json();
 }
 
-function deleteFetch(api) {
+export function deleteFetch(api) {
     fetch(api, {
         method: 'DELETE'
     })
 }
 
-function putFetch(api) {
+export function putFetch(api) {
     fetch(api, {
         method: 'PUT'
     })
 }
 
-function postFetch(api, data) {
+export function postFetch(api, data) {
     fetch(api, {
         method: 'POST',
         headers: {
