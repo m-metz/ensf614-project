@@ -5,11 +5,13 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import 'react-bootstrap';
+import { ApplicationContext } from './context';
+import {AppPage} from './AppPage';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   // <StrictMode>
-    <App />
+<AppPage/>
   // </StrictMode>
 
 

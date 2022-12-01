@@ -1,27 +1,22 @@
 import Backdrop from "../components/Backdrop";
-import { useState } from 'react';
 
 function Login() {
-    const [loggedIn, setLoggedIn] = useState(false);
-
-    function logInHandler() {
-        
-    }
 
     function cancelHandler() {
         window.location.pathway = '/';
         window.location.href = window.location.pathway;
     }
 
-    function confirmHandler(evt) {
-        //setSession to hold user info
-        evt.preventDefault();
+    function confirmHandler() {
+        //setSession to hold user info        
         let loginForm = document.getElementById('loginForm');
 
         //Verify credentials with server
         //If verfied:
+        //Change state to logged in
+
         sessionStorage.setItem("currentEmail", loginForm.email.value);
-        console.log(sessionStorage.getItem("currentEmail"));
+        console.log(`current email ${sessionStorage.getItem("currentEmail")}`);
         window.location.pathway = '/';
         window.location.href = window.location.pathway;
 
@@ -37,7 +32,7 @@ function Login() {
             Please Enter Information to Login:
         </h3>
         <br></br>
-        <form id="loginForm">
+        <form onSubmit={e => { e.preventDefault(); }} id="loginForm">
             <label>Enter your email: </label>
             <input type="text" id="email" name="email" required></input>
             <br></br><br></br>
@@ -45,7 +40,7 @@ function Login() {
             <input type="text" id="password" name="password" required></input>
             <br></br><br></br>
             <span>
-            <button className='btn' onClick={confirmHandler} type="submit">Log In</button>
+            <button className='btn' onClick={confirmHandler}>Log In</button>
             <button className='btn btn--alt' onClick={cancelHandler}>Cancel</button>        
         </span>
         </form><br></br>
