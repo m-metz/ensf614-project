@@ -1,5 +1,6 @@
 import Movielist from '../components/Movielist';
 
+//Should be just active movies
 const prereleaseDummy =    [{
     id: '7',
     title: "GetSmart",
