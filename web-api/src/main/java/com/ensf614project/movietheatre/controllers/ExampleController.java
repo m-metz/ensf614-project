@@ -2,6 +2,7 @@ package com.ensf614project.movietheatre.controllers;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -12,6 +13,7 @@ import com.ensf614project.movietheatre.services.ExampleService;
 
 @RestController
 @RequestMapping(path = "api/v1/example-entity")
+@CrossOrigin
 public class ExampleController {
 
     private final ExampleService exampleService;

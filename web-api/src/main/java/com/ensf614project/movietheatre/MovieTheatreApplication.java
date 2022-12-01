@@ -37,14 +37,14 @@ public class MovieTheatreApplication {
 		SpringApplication.run(MovieTheatreApplication.class, args);
 	}
 
-	public WebMvcConfigurer corsConfigurer() {
-		return new WebMvcConfigurer() {
-			@Override
-			public void addCorsMappings(CorsRegistry registry) {
-				registry.addMapping("/**").allowedOrigins("*");
-			}
-		};
-	}
+	// public WebMvcConfigurer corsConfigurer() {
+	// 	return new WebMvcConfigurer() {
+	// 		@Override
+	// 		public void addCorsMappings(CorsRegistry registry) {
+	// 			registry.addMapping("/**").allowedOrigins("*").allowedMethods("*");
+	// 		}
+	// 	};
+	// }
 
 	@Bean
 	public CommandLineRunner demo(MovieRepository movieRepository, TheatreRepository theatreRepository,

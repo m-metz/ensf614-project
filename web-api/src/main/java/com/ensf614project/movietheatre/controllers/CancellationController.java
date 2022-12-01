@@ -2,6 +2,7 @@ package com.ensf614project.movietheatre.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,6 +12,7 @@ import com.ensf614project.movietheatre.services.CancellationService;
 
 @RestController
 @RequestMapping(path = "/cancel")
+@CrossOrigin
 public class CancellationController {
 
     private final CancellationService cancellationService;
