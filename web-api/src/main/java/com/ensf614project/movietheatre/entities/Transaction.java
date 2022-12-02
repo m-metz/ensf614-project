@@ -8,10 +8,8 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
@@ -21,10 +19,6 @@ public class Transaction {
     private long id;
 
     private long number;
-
-    @JsonIgnore
-    @ManyToOne
-    private Card card;
 
     private LocalDateTime date;
 
