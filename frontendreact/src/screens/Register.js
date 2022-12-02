@@ -8,17 +8,19 @@ function Register(props) {
     function cancelHandler() {
         window.location.pathway = '/';
         window.location.href = window.location.pathway;
-
     }
 
     function confirmHandler(evt) {
         //grab data from form and save as variables to send to server
         evt.preventDefault();
         let registerForm = document.getElementById('registerForm');
+        let cardName = document.getElementById('cardname');
+        console.log(cardName);
         //post all information to server
+        //If user email does not already exist
         alert("Thanks for registering! You will be redirected to the login page now");
-        window.location.pathway = '/login';
-        window.location.href = window.location.pathway;
+        // window.location.pathway = '/login';
+        // window.location.href = window.location.pathway;
     }
 
     return (
