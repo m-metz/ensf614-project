@@ -58,17 +58,17 @@ function Homepage() {
         setLoadedMovies(data);
     });
 
-    // if(isLoading) {
-    //     return <section>
-    //         <p>Loading...</p>
-    //     </section>
-    // }
+    if(isLoading) {
+        return <section>
+            <p>Loading...</p>
+        </section>
+    }
     
     return (
         <section>
            
             <h1>In Theaters Now </h1>
-            <Movielist movies={dummyMovieData} />
+            <Movielist movies={loadedMovies} />
 
         </section>
     );

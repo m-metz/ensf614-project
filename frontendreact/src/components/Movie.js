@@ -10,6 +10,7 @@ function Movie(props) {
 
     function movieSelectHandler() {
         console.log(props.title);
+        sessionStorage.setItem("movieImage", props.image);
         sessionStorage.setItem("currentMovie", props.title);
         sessionStorage.setItem("currentMovieId", props.id);
         window.location.pathway = '/moviepage';
@@ -25,11 +26,8 @@ function Movie(props) {
                     alt={props.title}
                     />
             <CardContent>
-                <Typography gutterBottom variant = "h4" component="div">
+                <Typography gutterBottom variant = "h5" component="div">
                     {props.title}
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                    {props.description}
                 </Typography>
             </CardContent>
             </CardActionArea>
