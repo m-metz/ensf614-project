@@ -17,6 +17,10 @@ function Paymentinfo() {
             <input type="text" id="cardname" name="cardname" required></input>
             <br></br>
             <br></br>
+            <label htmlFor="cardname">Billing Postal: </label>
+            <input type="text" id="postal" name="postal" required></input>
+            <br></br>
+            <br></br>
             <label htmlFor="cardnum">Card Number: </label>
             <input type="text" id="cardnum" name="cardnum" required></input>
             <br></br>
