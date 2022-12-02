@@ -1,9 +1,10 @@
 import { Button } from "@mui/material";
 import Paymentinfo from "../components/Paymentinfo";
-
+import VerifyVoucher from "../components/VerifyVoucher"
 export default function BuyTicketsPage() {
   const email = sessionStorage.getItem("currentEmail");
   const isLoggedIn = email !== null && email !== "null";
+
 
   return (
     <div>
@@ -15,7 +16,7 @@ export default function BuyTicketsPage() {
       <p>Seats: {[sessionStorage.getItem("selectedSeats")]}</p>
 
       {isLoggedIn ? (
-        <div>We have your payment information on file, {email}</div>
+        <div>We already have your payment information on file, {email}</div>
       ) : (
         <>
           <form
@@ -37,25 +38,10 @@ export default function BuyTicketsPage() {
           <Paymentinfo />
         </>
       )}
-      <form
-        onSubmit={(e) => {
-          e.preventDefault();
-        }}
-        id="voucherForm"
-      >
-        <label>Enter your voucher id</label>
-        <input
-          type="text"
-          id="email"
-          name="email"
-          required
-        ></input>
-        <br></br>
-        <br></br>
-      </form>
+      <VerifyVoucher/>
       <Button
         variant="contained"
-        onClick={alert("Great success!")}
+        // onClick={alert("Great success!")}
       >
         Buy Tickets
       </Button>
