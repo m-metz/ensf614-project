@@ -2,8 +2,6 @@
 import Movie from'../components/Movie';
 import SearchCard from'../components/SearchCard';
 import {Grid} from '@mui/material';
-import { getFetch } from '../fetch';
-
 
 //Get session variables
 const currentMovieId = sessionStorage.getItem("currentMovieId");

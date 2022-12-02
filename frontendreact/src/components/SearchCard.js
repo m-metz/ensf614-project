@@ -1,27 +1,16 @@
 import * as React from 'react';
-import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
+import { getFetch } from '../fetch';
+import {useState} from 'react';
 
-
-const bull = (
-  <Box
-    component="span"
-    sx={{ display: 'inline-block', mx: '2px', transform: 'scale(0.8)' }}
-  >
-    •
-  </Box>
-);
 
   //Uses the getFetch to grab all theatres and populate dropdown
   window.addEventListener("load", async function(evt) {
     evt.preventDefault();
-    // let theatreList = await getFetch(api);
-    //HARDCODE FOR TESTS
-    let theatreList = [{id: "1", name: "Chinook Scotiabank", Address: "123 Avenue"}, {id: "2", name: "Landmark", Address: "567 Avenue"}]
+    let theatreList = await getFetch("http://localhost:8080/theatre/all");
     let theatreNames = [];
     theatreList.forEach(theatre => theatreNames.push(theatre['name']))
-    console.log(theatreNames)
 
     //Populate select dropdown in card with theatre names based on the fetched list
     let theatres = document.getElementById('theatreOptions'), theatre=theatreNames;
@@ -37,28 +26,38 @@ export default function SearchCard(props) {
 
   const currentMovieId = sessionStorage.getItem("currentMovieId");
 
+  const[isLoading, setIsLoading] = useState(true);
+  const [theatres, setTheatres] = useState([]);
+
+  getFetch("http://localhost:8080/theatre/all")
+  .then(data => {
+      setIsLoading(false);
+      setTheatres(data);
+  });
+
+  if(isLoading) {
+      return <section>
+          <p>Loading...</p>
+      </section>
+  }
+
   async function showtimeHandler(evt) {
     evt.preventDefault();
     sessionStorage.setItem("selectedTheatre", document.getElementById("theatreOptions").value)
     console.log("Theatre selected: ", sessionStorage.getItem("selectedTheatre"));
 
-    // let theatres = await getFetch();
+    let theatres = await getFetch("http://localhost:8080/theatre/all");
+    
     //Save theatre Id
-    let theatres = [{id: "1", name: "Chinook Scotiabank", Address: "123 Avenue"}, {id: "2", name: "Landmark", Address: "567 Avenue"}]
     let currentTheatre = theatres.find(theatre => theatre.name === sessionStorage.getItem("selectedTheatre"));
     sessionStorage.setItem("currentTheatreId", currentTheatre.id);
     const currentTheatreId = sessionStorage.getItem("currentTheatreId");
-    console.log("theatre id", sessionStorage.getItem("currentTheatreId"));
 
-    
-    // let showtimeList = await getFetch(GETSHOWTIMESAPI); --Do this based on selectedTheatre!!
-    //HARDCODED FOR TESTING
-    let showtimeList = [{id: "1", time: "19:00:00", date:"2022-12-14", screenNum: "1"}, {id: "2", time: "21:00:00", date:"2022-12-14", screenNum: "2"}, {id: "3", time: "19:00:00", date:"2022-12-15", screenNum: "1"}]
+    let showtimeList = await getFetch("http://localhost:8080/showtime/movie/"+currentMovieId+"/theatre/"+sessionStorage.currentTheatreId+"/upcoming");
     let showtimes = []
     showtimeList.forEach(showtime => showtimes.push(showtime['date']+" "+showtime['time']));
-    console.log(showtimes);
 
-    //Remove old showtimes from dropdown -- Figure out dropdown!
+    //Remove old showtimes from dropdown
     let oldShowtimes = document.getElementById("showtimeOptions").options.length;
  
       for(let i = 0; i < oldShowtimes-1; i++) {
@@ -76,17 +75,17 @@ export default function SearchCard(props) {
     } 
   }
 
-  function ticketHandler(evt) {
+  async function ticketHandler(evt) {
     evt.preventDefault();
+    //Set Selected Showtime in Session Storage
     sessionStorage.setItem("selectedShowtime", document.getElementById("showtimeOptions").value)
-    console.log("Showtime selected: ", sessionStorage.getItem("selectedShowtime"));
-
-    //find Id of selected showtime
-    //TODO: add await getFetch
-    let showtimeList = [{id: "1", time: "19:00:00", date:"2022-12-14", screenNum: "1"}, {id: "2", time: "21:00:00", date:"2022-12-14", screenNum: "2"}, {id: "3", time: "19:00:00", date:"2022-12-15", screenNum: "1"}]
+    
+    //Fetch ID
+    let showtimeList = await getFetch("http://localhost:8080/showtime/movie/"+currentMovieId+"/theatre/"+sessionStorage.currentTheatreId+"/upcoming");
     let currentShowtime = showtimeList.find(showtime => (showtime.date+" "+showtime.time) === sessionStorage.getItem("selectedShowtime"));
     sessionStorage.setItem("currentShowtimeId", currentShowtime.id);
-    console.log(sessionStorage.getItem("currentShowtimeId"));
+
+    //Redirect to the Select Seats Page
     window.location.pathway = '/selectseatspage';
     window.location.href = window.location.pathway;
   }
