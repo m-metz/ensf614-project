@@ -22,12 +22,7 @@ function VerifyVoucher() {
           name="voucher"
         ></input>
 
-        <button
-          className="btn"
-          onClick={validateVoucher}
-        >
-          Validate code
-        </button>
+        
       </form>
     </div>
   );

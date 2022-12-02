@@ -1,11 +1,45 @@
 import { Button } from "@mui/material";
 import Paymentinfo from "../components/Paymentinfo";
-import VerifyVoucher from "../components/VerifyVoucher"
 export default function BuyTicketsPage() {
   const email = sessionStorage.getItem("currentEmail");
   const isLoggedIn = email !== null && email !== "null";
+  const cvv = isLoggedIn ? sessionStorage.getItem("") : 2;
+  function SubmitHander() {
+    // {isLoggedIn ? (a =0): ( a = 4)}
+    //Is the user logged in? If so, query their info
+    //If not, get all their info from form
 
+    let paymentform = document.getElementById("Paymentinfo");
+    let cvv = paymentform.csv.value;
+    let cardName = paymentform.cardname.value;
+    let expiryDate = paymentform.cardexpiry.value;
+    let postal = paymentform.postal.value;
+    let type = paymentform.cardtype.value;
+    let cardnum = paymentform.cardnum.value;
+    let ticketObject = []
+    let tickets = JSON.parse(sessionStorage.getItem("selectedSeats"));
+    let currentShowtimeId = sessionStorage.getItem("currentShowtimeId")
+    tickets.forEach((element) => {
+      ticketObject.push({"currentShowtimeId": currentShowtimeId , "seatNum": element})
+    });
 
+    let SubmitObject = {
+      userEmail: document.getElementById("emailForm").email.value,
+      Tickets: ticketObject,
+      paymentCards: [
+        {
+          cvv: cvv,
+          nameOfHolder: cardName,
+          expiryDate: expiryDate,
+          billingPostal: postal,
+          type: type,
+          number: cardnum,
+        },
+      ],
+      voucher: document.getElementById("voucherForm").voucher.value,
+    };
+    console.log(SubmitObject);
+  }
   return (
     <div>
       <h1> Ticket Shopping Cart </h1>
@@ -23,7 +57,8 @@ export default function BuyTicketsPage() {
             onSubmit={(e) => {
               e.preventDefault();
             }}
-            id="loginForm"
+            id="emailForm"
+            class="card"
           >
             <label>Enter your email: </label>
             <input
@@ -38,18 +73,27 @@ export default function BuyTicketsPage() {
           <Paymentinfo />
         </>
       )}
-      <VerifyVoucher/>
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+        }}
+        id="voucherForm"
+        class="card"
+      >
+        <label>Enter voucher info (optional):</label>
+        <input
+          type="text"
+          id="voucher"
+          name="voucher"
+        ></input>
+      </form>
       <Button
         variant="contained"
-        // onClick={alert("Great success!")}
+        onClick={SubmitHander}
       >
         Buy Tickets
       </Button>
     </div>
-
-    //show email
-
-    //put in field to put in voucher code
     //put in grand total
   );
 }

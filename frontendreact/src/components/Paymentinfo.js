@@ -1,7 +1,8 @@
 function Paymentinfo() {
     //take in props here to know where to send this information
     return (
-        <form class="card">
+        <form class="card"
+        id='Paymentinfo'>
             <h4>Payment Information: </h4>
             <div id="cardType">
             <label htmlFor="cardtype">Type: </label>
