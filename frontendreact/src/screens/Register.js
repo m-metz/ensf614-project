@@ -14,9 +14,38 @@ function Register(props) {
         //grab data from form and save as variables to send to server
         evt.preventDefault();
         let registerForm = document.getElementById('registerForm');
-        let cardName = document.getElementById('cardname');
+        let cardName = document.getElementById('cardname').value;
+        let postal = document.getElementById('postal').value;
+        let cardNum = document.getElementById('cardnum').value;
+        let cardExp = document.getElementById('cardexpiry').value;
+        let cvv = document.getElementById('csv').value;
+        let type;
+        if(document.getElementById('type').checked === true) {
+            type = document.getElementById('type').value;
+        }
+        else {
+            type = "debit";
+        }
+
+
         console.log(cardName);
         //post all information to server
+        let data = {
+        email: registerForm.email.value,
+        name: registerForm.name.value,
+        address: registerForm.address.value,
+        password: registerForm.password.value,
+        paymentCards: [
+            {
+                cvv: cvv,
+                nameOfHolder: cardName,
+                expiryDate: cardExp,
+                billingPostal: postal,
+                type: type,
+                number: cardNum
+            }
+        ]}
+        console.log(data);
         //If user email does not already exist
         alert("Thanks for registering! You will be redirected to the login page now");
         // window.location.pathway = '/login';
