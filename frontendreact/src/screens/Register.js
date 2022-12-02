@@ -46,10 +46,11 @@ function Register(props) {
             }
         ]}
         console.log(data);
+        
         //If user email does not already exist
         alert("Thanks for registering! You will be redirected to the login page now");
-        // window.location.pathway = '/login';
-        // window.location.href = window.location.pathway;
+        window.location.pathway = '/login';
+        window.location.href = window.location.pathway;
     }
 
     return (

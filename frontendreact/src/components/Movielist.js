@@ -9,6 +9,7 @@ function Movielist(props) {
         window.location.href = window.location.pathway;
     }
 
+
     return (
         <Grid container spacing={1} justifyContent="center"  rowSpacing = {2} direction="row">
             {props.movies.map(movie => <Grid item xs = {2.5}  key={movie.id} > <Movie
