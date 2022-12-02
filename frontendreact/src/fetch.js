@@ -15,8 +15,8 @@ export function putFetch(api) {
     })
 }
 
-export function postFetch(api, data) {
-    fetch(api, {
+export async function postFetch(api, data) {
+    let response = await fetch(api, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -24,5 +24,6 @@ export function postFetch(api, data) {
         body: JSON.stringify(
             data
         )
-    })
+    });
+    return response.json();
 }

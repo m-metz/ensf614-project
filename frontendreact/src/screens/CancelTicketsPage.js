@@ -6,6 +6,8 @@ export default function CancelTicketPage() {
     async function cancelHandler() {
         let cancelForm = document.getElementById('cancelForm');
         let ticketNum = cancelForm.ticketnum.value;
+        let email = cancelForm.email.value;
+
         //getTickettoCheckIfValid
         let ticket = await getFetch("http://localhost:8080/ticket/"+ticketNum);
 
@@ -15,8 +17,15 @@ export default function CancelTicketPage() {
             return -1;
         }
 
-        //UPDATE API ADDRESS
-        //postFetch("CANCEL", ticket);
+        let cancellation = await postFetch(("http://localhost:8080/cancel/"+ticketNum+"/"+email), null);
+        console.log(cancellation.message);
+        if(cancellation["error"] == "Internal Server Error") {
+            alert("Error: "+cancellation.message);
+            return -1;
+        }
+        
+        document.getElementById('cancelMessage').innerHTML = "Cancellation Successful!" +"<br/>Your cancellation code: "+
+        cancellation['creditCode']+"<br/>Expiry Date: "+cancellation['expiryDate']+"<br/>These details will be sent to your email.";
 
     }
 
@@ -36,6 +45,7 @@ export default function CancelTicketPage() {
         <button className='btn' onClick={cancelHandler}>Submit Cancellation</button>       
     </span>
     </form><br></br>
+    <h5 id="cancelMessage" className="card"></h5>
     </div>
     )
 }
