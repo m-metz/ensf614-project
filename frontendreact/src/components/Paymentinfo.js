@@ -3,7 +3,7 @@ function Paymentinfo() {
         <form class="card">
             <h4>Payment Information: </h4>
             <div>
-            <label for="cardtype">Type: </label>
+            <label htmlFor="cardtype">Type: </label>
             <span>
             <input type="radio" id="credit" name="cardtype" value="credit"></input>
             <label for="credit">Credit Card</label>
@@ -13,22 +13,21 @@ function Paymentinfo() {
             <br></br>
             </div>
             <br></br>
-            <label for="cardname">Cardholder Name: </label>
+            <label htmlFor="cardname">Cardholder Name: </label>
             <input type="text" id="cardname" name="cardname" required></input>
             <br></br>
             <br></br>
-            <label for="cardnum">Card Number: </label>
+            <label htmlFor="cardnum">Card Number: </label>
             <input type="text" id="cardnum" name="cardnum" required></input>
             <br></br>
             <br></br>
-            <label for="cardexpiry">Card Expiry (MM/YYYY): </label>
+            <label htmlFor="cardexpiry">Card Expiry (MM/YYYY): </label>
             <input type="text" id="cardexpiry" name="cardexpiry" required></input>
             <br></br>
             <br></br>
-            <label for="csv">Security Code: </label>
+            <label htmlFor="csv">Security Code: </label>
             <input type="text" id="csv" name="csv" required></input>
             <br></br><br></br>
-            <button className='btn' type="submit">Verify</button>
         </form>
     );
 

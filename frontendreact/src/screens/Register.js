@@ -14,7 +14,7 @@ function Register(props) {
         //grab data from form and save as variables to send to server
         evt.preventDefault();
         let registerForm = document.getElementById('registerForm');
-        let cardName = document.getElementById('cardname');
+        let cardName = document.getElementById('cardname').value;
         console.log(cardName);
         //post all information to server
         //If user email does not already exist
