@@ -2,13 +2,13 @@ function Paymentinfo() {
     return (
         <form class="card">
             <h4>Payment Information: </h4>
-            <div>
+            <div id="cardType">
             <label htmlFor="cardtype">Type: </label>
             <span>
-            <input type="radio" id="credit" name="cardtype" value="credit"></input>
+            <input type="radio" id="type" name="cardtype" value="credit"></input>
             <label for="credit">Credit Card</label>
-            <input type="radio" id="debit" name="cardtype" value="debit"></input>
-            <label for="credit">Debit Card</label>
+            <input type="radio" id="type" name="cardtype" value="debit"></input>
+            <label for="debit">Debit Card</label>
             </span>
             <br></br>
             </div>
