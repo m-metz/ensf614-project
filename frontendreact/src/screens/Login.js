@@ -1,4 +1,5 @@
 import Backdrop from "../components/Backdrop";
+import { getFetch } from '../fetch';
 
 function Login() {
 
@@ -7,23 +8,22 @@ function Login() {
         window.location.href = window.location.pathway;
     }
 
-    function confirmHandler() {
-        //setSession to hold user info        
+    async function confirmHandler() {      
         let loginForm = document.getElementById('loginForm');
 
         //Verify credentials with server
-        //If verfied:
-        //Change state to logged in
+        let user = await getFetch("http://localhost:8080/RegisteredUser/"+loginForm.email.value+"/"+loginForm.password.value);
 
+        if(user['error'] == "Internal Server Error") {
+            alert(user.message);
+            return -1;
+        }
         sessionStorage.setItem("currentEmail", loginForm.email.value);
         sessionStorage.setItem("currentPassword", loginForm.password.value);
         console.log(`current email ${sessionStorage.getItem("currentEmail")}`);
         window.location.pathway = '/';
         window.location.href = window.location.pathway;
 
-        //If not verfied 
-        //alert("Invalid credentials! Please try again.")
-        //return -1;
     }
 
     return (
