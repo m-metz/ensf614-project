@@ -28,4 +28,8 @@ public class MovieService {
     public List<Movie> getAllActiveMovies() {
         return movieRepository.findMovieByIsActive(true);
     }
+
+    public List<Movie> getAllActivePrereleaseMovies() {
+        return movieRepository.findMovieByIsActiveAndIsPublic(true, false);
+    }
 }
