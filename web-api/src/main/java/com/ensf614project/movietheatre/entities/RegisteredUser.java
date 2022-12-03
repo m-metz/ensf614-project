@@ -12,6 +12,7 @@ import javax.persistence.OrderBy;
 import org.springframework.lang.Nullable;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 public class RegisteredUser {
@@ -30,6 +31,7 @@ public class RegisteredUser {
 
     @Nullable
     @OneToMany(mappedBy = "registeredUser")
+    @JsonManagedReference
     private Set<Card> paymentCards;
 
     @Nullable

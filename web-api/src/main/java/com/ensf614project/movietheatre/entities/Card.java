@@ -10,8 +10,7 @@ import javax.persistence.ManyToOne;
 
 import org.springframework.lang.NonNull;
 import org.springframework.lang.Nullable;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
 public class Card {
@@ -38,7 +37,7 @@ public class Card {
 
     @Nullable
     @ManyToOne
-    @JsonIgnore
+    @JsonBackReference
     private RegisteredUser registeredUser;
 
     public Card() {
