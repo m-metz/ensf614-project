@@ -10,17 +10,18 @@ import javax.persistence.ManyToOne;
 
 import org.springframework.lang.NonNull;
 import org.springframework.lang.Nullable;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
 @Entity
 public class Card {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @JsonProperty(access = Access.READ_ONLY)
     private long id;
 
     @NonNull
-    @JsonIgnore
     private String number;
 
     private int cvv;
@@ -39,7 +40,7 @@ public class Card {
 
     @Nullable
     @ManyToOne
-    @JsonIgnore
+    @JsonBackReference
     private RegisteredUser registeredUser;
 
     public Card() {

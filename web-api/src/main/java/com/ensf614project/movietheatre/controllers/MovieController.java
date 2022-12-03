@@ -36,4 +36,9 @@ public class MovieController {
     public List<Movie> getAllActiveMovies() {
         return movieService.getAllActiveMovies();
     }
+
+    @GetMapping(path = "/all/active/prerelease")
+    public List<Movie> getAllActivePrereleaseMovies() {
+        return movieService.getAllActivePrereleaseMovies();
+    }
 }
