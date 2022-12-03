@@ -9,14 +9,7 @@ import { useState } from "react";
 let seatList = [];
 let buttonVariant = "";
 
-//TODO change color of button based on selection
 function Seat(props) {
-  // const [selected, setSelected] = useState(false);
-
-  // if (!{ selected }) {
-  //   console.log("buttokn selected");
-  //   setSelected(true);
-  // }
   const [clicked, setClicked] = useState(false);
   const [category, setCategory] = useState("false");
   const categoryChangedHandler = (e) => {
@@ -24,12 +17,15 @@ function Seat(props) {
   };
   function seatSelectHandler() {
     categoryChangedHandler(category);
-    setClicked(true);
-    // buttonVariant = "contained";
-    console.log(props.seatNum);
-    seatList.push(props.seatNum);
-    sessionStorage.selectedSeats = JSON.stringify(seatList);
-    console.log(sessionStorage.selectedSeats);
+    if (!clicked) {
+      
+      setClicked(true);
+      // buttonVariant = "contained";
+      console.log(props.seatNum);
+      seatList.push(props.seatNum);
+      sessionStorage.selectedSeats = JSON.stringify(seatList);
+      console.log(sessionStorage.selectedSeats);
+    }
   }
 
   function determineButton() {
@@ -41,15 +37,16 @@ function Seat(props) {
     }
   }
 
-  // determineButton();
+  determineButton();
   return (
     <Button
-      variant={clicked ? "contained" : "outlined"}
+      variant={clicked&&props.isAvailable ? "contained" : "outlined"}
       // variant={buttonVariant}
       onClick={seatSelectHandler}
       sx={{ width: "1em" }}
     >
-      {props.seatNum}
+       {props.seatNum}
+      {/* {props.seatRow}, {props.seatNum} */}
     </Button>
   );
 }

@@ -75,9 +75,9 @@ export default function BuyTicketsPage() {
     <div>
       <h1> Ticket Shopping Cart </h1>
       <h2> You are buying tickets for</h2>
-      <p>Movie: {[sessionStorage.getItem("currentMovieId")]}</p>
-      <p>Theatre: {[sessionStorage.getItem("currentTheatreId")]}</p>
-      <p>Show time: {[sessionStorage.getItem("currentShowtimeId")]}</p>
+      <p>Movie: {[sessionStorage.getItem("currentMovie")]}</p>
+      <p>Theatre: {[sessionStorage.getItem("selectedTheatre")]}</p>
+      <p>Show time: {[sessionStorage.getItem("selectedShowtime")]}</p>
       <p>Seats: {[sessionStorage.getItem("selectedSeats")]}</p>
       <p><b>
         Your total:{" "}
