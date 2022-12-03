@@ -20,7 +20,6 @@ public class Card {
     private long id;
 
     @NonNull
-    @JsonIgnore
     private String number;
 
     private int cvv;
