@@ -23,12 +23,17 @@ public class Screen {
 
     private int screenNum;
 
+    @JsonIgnore
+    private int capacity;
+
     public Screen() {
     }
 
     public Screen(Theatre theatre, int screenNum) {
         this.theatre = theatre;
         this.screenNum = screenNum;
+        // default capacity of 100
+        this.capacity = 100;
     }
 
     public long getId() {
@@ -53,6 +58,14 @@ public class Screen {
 
     public void setScreenNum(int screenNum) {
         this.screenNum = screenNum;
+    }
+
+    public int getCapacity() {
+        return capacity;
+    }
+
+    public void setCapacity(int capacity) {
+        this.capacity = capacity;
     }
 
 }

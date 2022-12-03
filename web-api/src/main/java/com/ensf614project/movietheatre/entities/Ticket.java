@@ -9,6 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 import org.springframework.lang.NonNull;
+import org.springframework.lang.Nullable;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -31,7 +32,7 @@ public class Ticket {
 
     private int rowNum;
 
-    @NonNull
+    @Nullable
     @ManyToOne
     @JsonIgnoreProperties("tickets")
     private Transaction transaction;

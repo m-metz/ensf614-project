@@ -20,7 +20,7 @@ public class TicketService {
         this.ticketRepository = ticketRepository;
     }
 
-    public List<?> getTakenSeats(Long showtimeId) {
+    public List<?> getAllSeatsForShowtime(Long showtimeId) {
         // get all taken seats
         List<TakenSeat> takenSeats = ticketRepository.getTicketByShowtimeIdAndIsCancelledOrderByRowNumAscSeatNumAsc(
                 showtimeId,
@@ -45,6 +45,10 @@ public class TicketService {
         return allSeats;
     }
 
+    public List<TakenSeat> getTakenSeats(Long showtimeId) {
+        return ticketRepository.getTicketByShowtimeIdAndIsCancelledOrderByRowNumAscSeatNumAsc(showtimeId, false);
+    }
+
     public Ticket getTicketById(Long ticketId) {
         Optional<Ticket> ticket = ticketRepository.findTicketById(ticketId);
         if (!ticket.isPresent()) {
@@ -59,6 +63,10 @@ public class TicketService {
 
     public void cancelTicket(Ticket ticket) {
         ticket.setCancelled(true);
+        ticketRepository.save(ticket);
+    }
+
+    public void saveTicket(Ticket ticket) {
         ticketRepository.save(ticket);
     }
 

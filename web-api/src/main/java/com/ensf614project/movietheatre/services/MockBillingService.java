@@ -10,7 +10,7 @@ public class MockBillingService implements BillingService {
     @Override
     public Transaction charge(Card card, double amount, String userEmail) {
         // validate card number provided is 16 numbers long
-        if (card.getNumber().matches("[0-9]+") && card.getNumber().length() == 16) {
+        if (!card.getNumber().matches("[0-9]+") || card.getNumber().length() != 16) {
             throw new IllegalStateException("Invalid card number");
         }
 
