@@ -40,6 +40,11 @@ public class TransactionService {
     public List<Ticket> buyTickets(String email, long showtimeId, List<Seat> seats, Card paymentCard,
             String creditCode, double ticketPrice) {
 
+        // validate at least one seat was selected
+        if (seats == null || seats.size() == 0) {
+            throw new IllegalStateException("No seats selected.");
+        }
+
         // check if email belongs to registered user
         RegisteredUser user = registeredUserService.getRegisteredUserByEmail(email);
 
@@ -79,7 +84,7 @@ public class TransactionService {
                 if (takenSeats.get(j).getSeatNum() == desiredSeat.getSeatNum()
                         && takenSeats.get(j).getRowNum() == desiredSeat.getRowNum()) {
                     throw new IllegalStateException("Seat in row " + desiredSeat.getRowNum() + ", number "
-                            + desiredSeat.getRowNum() + " is already taken.");
+                            + desiredSeat.getSeatNum() + " is already taken.");
                 }
             }
         }
@@ -87,16 +92,17 @@ public class TransactionService {
         // validate there are no duplicate desired seats and each seat is valid
         for (int i = 0; i < seats.size(); i++) {
             desiredSeat = seats.get(i);
-            if (desiredSeat.getSeatNum() > 10 || desiredSeat.getRowNum() > 10) {
+            if (desiredSeat.getSeatNum() > 10 || desiredSeat.getSeatNum() < 1 || desiredSeat.getRowNum() > 10
+                    || desiredSeat.getRowNum() < 1) {
                 throw new IllegalStateException("Seat in row " + desiredSeat.getRowNum() + ", number "
-                        + desiredSeat.getRowNum() + " is invalid.");
+                        + desiredSeat.getSeatNum() + " is invalid.");
             }
 
             for (int j = i + 1; j < seats.size(); j++) {
                 if (seats.get(j).getSeatNum() == desiredSeat.getSeatNum()
                         && seats.get(j).getRowNum() == desiredSeat.getRowNum()) {
                     throw new IllegalStateException("Seat in row " + desiredSeat.getRowNum() + ", number "
-                            + desiredSeat.getRowNum() + " was selected multiple times.");
+                            + desiredSeat.getSeatNum() + " was selected multiple times.");
                 }
             }
         }
