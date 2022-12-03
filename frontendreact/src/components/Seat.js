@@ -27,7 +27,7 @@ function Seat(props) {
     setClicked(true);
     // buttonVariant = "contained";
     console.log(props.seatNum);
-    seatList.push(props.seatNum);
+    seatList.push([props.seatNum, props.seatRow]);
     sessionStorage.selectedSeats = JSON.stringify(seatList);
     console.log(sessionStorage.selectedSeats);
   }

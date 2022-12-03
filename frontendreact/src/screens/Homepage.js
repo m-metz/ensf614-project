@@ -25,6 +25,7 @@ function Homepage() {
             <h1>In Theaters Now! Search All Movies: </h1>
             <Movielist movies={loadedMovies} />
         </section>
+
         </div>
     );
 } 
