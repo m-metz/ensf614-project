@@ -7,7 +7,7 @@ function Prerelease() {
     const[isLoading, setIsLoading] = useState(true);
     const [preReleases, setPreReleases] = useState([]);
 
-    getFetch("http://localhost:8080/movie/all/active")
+    getFetch("http://localhost:8080/movie/all/active/prerelease")
     .then(data => {
         setIsLoading(false);
         setPreReleases(data);
