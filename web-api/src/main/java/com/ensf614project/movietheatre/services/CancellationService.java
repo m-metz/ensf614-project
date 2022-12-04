@@ -62,7 +62,7 @@ public class CancellationService {
         return amountCharged;
     }
 
-    public ResponseEntity<?> cancelTicket(Long ticketId, String email) {
+    public ResponseEntity<?> cancelTicket(Long ticketId) {
         // get ticket, will raise error if there is an error
         Ticket ticket = ticketService.getTicketById(ticketId);
 

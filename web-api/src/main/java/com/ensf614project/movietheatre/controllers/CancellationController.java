@@ -22,8 +22,8 @@ public class CancellationController {
         this.cancellationService = cancellationService;
     }
 
-    @PostMapping(path = "/{ticketId}/{email}")
-    public ResponseEntity<?> cancelTicket(@PathVariable Long ticketId, @PathVariable String email) {
-        return cancellationService.cancelTicket(ticketId, email);
+    @PostMapping(path = "/{ticketId}")
+    public ResponseEntity<?> cancelTicket(@PathVariable Long ticketId) {
+        return cancellationService.cancelTicket(ticketId);
     }
 }

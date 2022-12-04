@@ -40,6 +40,12 @@ public class Transaction {
         this.totalPrice = totalPrice;
     }
 
+    public Transaction(LocalDateTime date, String userEmail, double totalPrice) {
+        this.date = date;
+        this.userEmail = userEmail;
+        this.totalPrice = totalPrice;
+    }
+
     public long getId() {
         return id;
     }
