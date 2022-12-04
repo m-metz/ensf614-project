@@ -125,7 +125,7 @@ public class TransactionService {
 
         if (amountToChargeCard > 0) {
             // create and save transaction
-            transaction = billingService.charge(paymentCard, amountToChargeCard, email);
+            transaction = billingService.chargeTicket(paymentCard, amountToChargeCard, email);
             TransactionRepository.save(transaction);
         } else {
             transaction = new Transaction(LocalDateTime.now(), email, 0);

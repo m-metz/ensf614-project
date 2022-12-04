@@ -27,12 +27,22 @@ public class RegisteredUserController {
 
     @GetMapping("{email}/{password}")
     public RegisteredUser login(@PathVariable String email, @PathVariable String password) {
-        return registeredUserService.getRegisteredUser(email, password);
+        return registeredUserService.login(email, password);
+    }
+
+    @GetMapping("{email}")
+    public RegisteredUser getUser(@PathVariable String email) {
+        return registeredUserService.getRegisteredUserByEmail(email);
     }
 
     @PostMapping
     public ResponseEntity<RegisteredUser> add(@RequestBody RegisteredUser registeredUser) {
         registeredUserService.add(registeredUser);
         return ResponseEntity.ok(registeredUser);
+    }
+
+    @PostMapping("{email}/renew-membership")
+    public void renewMembership(@PathVariable String email) {
+        registeredUserService.renewMembership(email);
     }
 }
