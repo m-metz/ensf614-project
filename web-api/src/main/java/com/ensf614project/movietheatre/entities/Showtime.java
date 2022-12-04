@@ -2,14 +2,20 @@ package com.ensf614project.movietheatre.entities;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import org.springframework.lang.NonNull;
+import org.springframework.lang.Nullable;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Showtime {
@@ -31,6 +37,11 @@ public class Showtime {
     @ManyToOne
     private Screen screen;
 
+    @Nullable
+    @JsonIgnore
+    @OneToMany(fetch = FetchType.LAZY)
+    private List<Ticket> tickets;
+
     public Showtime() {
     }
 
@@ -39,6 +50,18 @@ public class Showtime {
         this.date = date;
         this.time = time;
         this.screen = screen;
+    }
+
+    public boolean isMovieActive() {
+        return movie.isActive();
+    }
+
+    public boolean isMoviePublic() {
+        return movie.isPublic();
+    }
+
+    public int getScreenCapcity() {
+        return screen.getCapacity();
     }
 
     public long getId() {
@@ -79,6 +102,14 @@ public class Showtime {
 
     public void setScreen(Screen screen) {
         this.screen = screen;
+    }
+
+    public List<Ticket> getTickets() {
+        return tickets;
+    }
+
+    public void setTickets(List<Ticket> tickets) {
+        this.tickets = tickets;
     }
 
 }

@@ -4,35 +4,17 @@ import { Button } from "@mui/material";
 import { Box } from "@mui/material";
 import { getFetch } from "../fetch";
 import { useState } from "react";
-let seats = [];
-function PopulateSeats() {
-  // getFetch(
-  //   "http://localhost:8080/showtime/" +
-  //     sessionStorage.getItem("currentShowtimeId") +
-  //     "/seats"
-  // ).then((data) => {
-  //   data.forEach((element) => {
-  //     seats.push(element);
-  //   });
-  // });
-
-  // console.log(seats);
-
-  // let seatId = 1;
-  // let isAvailable = false; // set as true by default, but can be modified based on JSON output
-  // for (let rowNum = 1; rowNum < 11; rowNum++) {
-  //   for (let seatNum = 1; seatNum < 11; seatNum++) {
-  //     seats.push({ seatNum: seatId, rowNum: rowNum, isAvailable: isAvailable });
-  //     seatId++;
-  // }
-}
+import { Container } from "react-bootstrap";
 
 function ConfirmSelection() {
   window.location.pathway = "/buyticketspage";
   window.location.href = window.location.pathway;
 }
+  function cancelHandler() {
+    window.location.pathway = "/";
+    window.location.href = window.location.pathway;
+  }
 function SelectSeatsPage() {
-  PopulateSeats();
   return (
     <section>
       <h1>Please Select Seats</h1>
@@ -40,21 +22,35 @@ function SelectSeatsPage() {
       <Grid container>
         <Grid
           item
-          xs={3}
+          xs={2}
         ></Grid>
         <Grid
-          item
-          xs={6}
+          // item
+          xs={8}
         >
-          <SeatView  />
-          {/* <SeatView seats={seats} /> */}
-          <Box padding={"2rem"}>
+          <Box
+            bgcolor="black"
+            color="white"
+            textAlign="center"
+            padding={"1rem"}
+            marginBottom={"1rem"}
+            borderRadius={"10px"}
+          >
+            SCREEN
+          </Box>
+          <SeatView />
+          <Box padding={"1rem"}>
             <Button
               variant="contained"
+              class="btn"
               onClick={ConfirmSelection}
             >
               Confirm Selection
             </Button>
+      <button
+        className="btn btn--alt"
+        onClick={cancelHandler}
+      >Cancel</button>
           </Box>
         </Grid>
         <Grid item></Grid>

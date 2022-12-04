@@ -1,5 +1,7 @@
 package com.ensf614project.movietheatre.entities;
 
+import java.time.LocalDate;
+import java.util.List;
 import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -17,7 +19,9 @@ import org.springframework.lang.Nullable;
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonSetter;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
 @Entity
 @Table(
@@ -69,6 +73,9 @@ public class RegisteredUser {
     @NonNull
     private String password = "";
 
+    @JsonProperty(access = Access.READ_ONLY)
+    private LocalDate membershipExpiry;
+
     @Nullable
     /*
      * Need orphanRemoval, else the card foreign key is just set to null.
@@ -78,7 +85,7 @@ public class RegisteredUser {
      */
     @OneToMany(mappedBy = "registeredUser", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference
-    private Set<Card> paymentCards;
+    private List<Card> paymentCards;
 
     @Nullable
     @OneToMany(mappedBy = "registeredUser")
@@ -138,11 +145,11 @@ public class RegisteredUser {
         this.password = password;
     }
 
-    public Set<Card> getPaymentCards() {
+    public List<Card> getPaymentCards() {
         return paymentCards;
     }
 
-    public void setPaymentCards(Set<Card> paymentCards) {
+    public void setPaymentCards(List<Card> paymentCards) {
         this.paymentCards = paymentCards;
     }
 
@@ -152,5 +159,13 @@ public class RegisteredUser {
 
     public void setCancellationCredits(Set<CancellationCredit> cancellationCredits) {
         this.cancellationCredits = cancellationCredits;
+    }
+
+    public LocalDate getMembershipExpiry() {
+        return membershipExpiry;
+    }
+
+    public void setMembershipExpiry(LocalDate membershipExpiry) {
+        this.membershipExpiry = membershipExpiry;
     }
 }

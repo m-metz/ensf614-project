@@ -27,7 +27,7 @@ public class ShowtimeController {
 
     @GetMapping("{showtimeId}/seats")
     public List<?> getAllTheatres(@PathVariable Long showtimeId) {
-        return ticketService.getTakenSeats(showtimeId);
+        return ticketService.getAllSeatsForShowtime(showtimeId);
     }
 
     @GetMapping("movie/{movieId}")

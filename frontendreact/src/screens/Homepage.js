@@ -1,7 +1,8 @@
 import Movielist from '../components/Movielist';
 import { getFetch } from '../fetch';
 import {useState} from 'react';
-
+import MembExp from '../components/MembExp';
+import { Box } from '@mui/material';
 
 function Homepage() {
     const[isLoading, setIsLoading] = useState(true);
@@ -21,10 +22,14 @@ function Homepage() {
 
     return (
         <div>
+                    <Box sx={{margin: "1rem"}} >
+
         <section className="card">
+            <MembExp></MembExp>
             <h1>In Theaters Now! Search All Movies: </h1>
             <Movielist movies={loadedMovies} />
         </section>
+                    </Box>
 
         </div>
     );

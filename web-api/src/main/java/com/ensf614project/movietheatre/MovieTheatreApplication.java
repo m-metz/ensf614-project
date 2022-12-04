@@ -9,8 +9,6 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import org.springframework.web.servlet.config.annotation.CorsRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import com.ensf614project.movietheatre.entities.CancellationCredit;
 import com.ensf614project.movietheatre.entities.Card;
@@ -38,15 +36,15 @@ public class MovieTheatreApplication {
 	}
 
 	// public WebMvcConfigurer corsConfigurer() {
-	// 	return new WebMvcConfigurer() {
-	// 		@Override
-	// 		public void addCorsMappings(CorsRegistry registry) {
-	// 			registry.addMapping("/**").allowedOrigins("*").allowedMethods("*");
-	// 		}
-	// 	};
+	// return new WebMvcConfigurer() {
+	// @Override
+	// public void addCorsMappings(CorsRegistry registry) {
+	// registry.addMapping("/**").allowedOrigins("*").allowedMethods("*");
+	// }
+	// };
 	// }
 
-	@Bean
+	// @Bean
 	public CommandLineRunner demo(MovieRepository movieRepository, TheatreRepository theatreRepository,
 			ScreenRepository screenRepository, ShowtimeRepository showtimeRepository,
 			TicketRepository ticketRepository, TransactionRepository transactionRepository,

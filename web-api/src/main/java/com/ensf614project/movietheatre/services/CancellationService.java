@@ -29,7 +29,40 @@ public class CancellationService {
         this.registeredUserService = registeredUserService;
     }
 
-    public ResponseEntity<?> cancelTicket(Long ticketId, String email) {
+    public CancellationCredit cancellationCreditByCreditCode(String code) {
+        return cancellationCreditRepository.findCancellationCreditByCreditCode(code);
+    }
+
+    public double chargeCancellationCredit(String code, double maxAmount) {
+        CancellationCredit credit = cancellationCreditRepository.findCancellationCreditByCreditCode(code);
+
+        // validate code exists, is not expired, and has credit remaining
+        if (credit == null) {
+            throw new IllegalStateException("Cancellation credit not found.");
+        } else if (credit.getExpiryDate().isBefore(LocalDate.now())) {
+            throw new IllegalStateException("Cancellation credit is expired.");
+        } else if (credit.getCreditValue() == 0) {
+            throw new IllegalStateException("Cancellation credit has no credit remaining.");
+        }
+
+        // charge the cancellation credit up to the maxAmount
+        double amountCharged;
+        if (credit.getCreditValue() > maxAmount) {
+            credit.setCreditValue(credit.getCreditValue() - maxAmount);
+            amountCharged = maxAmount;
+        } else {
+            amountCharged = credit.getCreditValue();
+            credit.setCreditValue(0);
+        }
+
+        // save credit in database
+        cancellationCreditRepository.save(credit);
+
+        // return amount charged
+        return amountCharged;
+    }
+
+    public ResponseEntity<?> cancelTicket(Long ticketId) {
         // get ticket, will raise error if there is an error
         Ticket ticket = ticketService.getTicketById(ticketId);
 
