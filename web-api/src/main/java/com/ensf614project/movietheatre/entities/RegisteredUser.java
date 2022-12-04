@@ -1,7 +1,7 @@
 package com.ensf614project.movietheatre.entities;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -85,7 +85,7 @@ public class RegisteredUser {
      */
     @OneToMany(mappedBy = "registeredUser", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference
-    private ArrayList<Card> paymentCards;
+    private List<Card> paymentCards;
 
     @Nullable
     @OneToMany(mappedBy = "registeredUser")
@@ -145,11 +145,11 @@ public class RegisteredUser {
         this.password = password;
     }
 
-    public ArrayList<Card> getPaymentCards() {
+    public List<Card> getPaymentCards() {
         return paymentCards;
     }
 
-    public void setPaymentCards(ArrayList<Card> paymentCards) {
+    public void setPaymentCards(List<Card> paymentCards) {
         this.paymentCards = paymentCards;
     }
 
