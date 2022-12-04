@@ -43,10 +43,10 @@ function Seat(props) {
       variant={clicked&&props.isAvailable ? "contained" : "outlined"}
       // variant={buttonVariant}
       onClick={seatSelectHandler}
-      sx={{ width: "1em" }}
+      sx={{ width: "8em" }}
     >
-       Num: {props.seatNum} 
-      {/* {props.seatRow}, {props.seatNum} */}
+       Seat: {props.seatNum} <br/>
+       Row: {props.seatRow} 
     </Button>
   );
 }

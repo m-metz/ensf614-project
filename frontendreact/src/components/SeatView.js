@@ -38,14 +38,12 @@ function SeatView() {
       </Grid>
     );
   });
-  console.log(seatArray);
 
   return (
     <Grid
       container
       spacing={1}
       justifyContent="center"
-      rowSpacing={1}
       direction="row"
     >
       {seatArray}
