@@ -77,11 +77,12 @@ public class CancellationService {
             throw new IllegalStateException("Ticket not within cancellation window");
         }
 
-        // validate user is registered and active
-        // to do: validate user paid membership within last 12 months
+        // validate user is registered and user paid membership within last 12 months
         RegisteredUser user = registeredUserService.getRegisteredUserByEmail(ticket.getUserEmail());
         boolean userRegisteredAndActive = true;
         if (user == null) {
+            userRegisteredAndActive = false;
+        } else if (user.getMembershipExpiry().isBefore(LocalDate.now())) {
             userRegisteredAndActive = false;
         }
 

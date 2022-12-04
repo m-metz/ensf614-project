@@ -1,5 +1,6 @@
 package com.ensf614project.movietheatre.services;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -34,8 +35,8 @@ public class TransactionService {
         this.showtimeService = showtimeService;
         this.registeredUserService = registeredUserService;
         this.cancellationService = cancellationService;
-        // can maybe use singleton to create the billingService object
-        this.billingService = new MockBillingService();
+        // using singleton to access shared billing service
+        this.billingService = BillingServiceSingleton.getOnlyBillingService();
     }
 
     public List<Ticket> buyTickets(String email, long showtimeId, List<Seat> seats, Card paymentCard,
@@ -49,8 +50,11 @@ public class TransactionService {
         // check if email belongs to registered user
         RegisteredUser user = registeredUserService.getRegisteredUserByEmail(email);
 
+        // validate user is registered and user paid membership within last 12 months
         boolean isRegisteredUser = true;
         if (user == null) {
+            isRegisteredUser = false;
+        } else if (user.getMembershipExpiry().isBefore(LocalDate.now())) {
             isRegisteredUser = false;
         }
 

@@ -1,10 +1,12 @@
 package com.ensf614project.movietheatre.services;
 
 import java.time.LocalDate;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
+
 import com.ensf614project.movietheatre.entities.Card;
 import com.ensf614project.movietheatre.entities.RegisteredUser;
 import com.ensf614project.movietheatre.repositories.RegisteredUserRepository;
@@ -18,12 +20,12 @@ public class RegisteredUserService {
     @Autowired
     public RegisteredUserService(RegisteredUserRepository registeredUserRepository) {
         this.registeredUserRepository = registeredUserRepository;
-        this.billingService = new MockBillingService();
+        // using singleton to access shared billing service
+        this.billingService = BillingServiceSingleton.getOnlyBillingService();
     }
 
     public RegisteredUser login(String email, String password) {
-        RegisteredUser registeredUser =
-            registeredUserRepository.findRegisteredUserByEmailAndPassword(email, password);
+        RegisteredUser registeredUser = registeredUserRepository.findRegisteredUserByEmailAndPassword(email, password);
         if (registeredUser == null) {
             throw new IllegalStateException("Invalid credentials.");
         }
@@ -40,20 +42,21 @@ public class RegisteredUserService {
         /*
          * The DB checks this too, but we want a nicer error message.
          */
-        RegisteredUser registeredUserExists =
-            registeredUserRepository.findRegisteredUserByEmail(registeredUser.getEmail());
+        RegisteredUser registeredUserExists = registeredUserRepository
+                .findRegisteredUserByEmail(registeredUser.getEmail());
         if (registeredUserExists != null) {
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR,
-                "A user with that e-mail already exists.");
+                    "A user with that e-mail already exists.");
         }
 
         /*
-         * Even though the API and DB supports multiple cards, the UI might not, so let's not allow
+         * Even though the API and DB supports multiple cards, the UI might not, so
+         * let's not allow
          * it.
          */
         if (registeredUser.getPaymentCards().size() > 1) {
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR,
-                "More than one credit card is not supported.");
+                    "More than one credit card is not supported.");
         }
 
         return chargeForMembership(registeredUser);
@@ -63,7 +66,7 @@ public class RegisteredUserService {
         RegisteredUser registeredUser = getRegisteredUserByEmail(email);
         if (registeredUser == null) {
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR,
-                "A user with that e-mail does not exist.");
+                    "A user with that e-mail does not exist.");
         }
 
         chargeForMembership(registeredUser);
@@ -81,14 +84,15 @@ public class RegisteredUserService {
         billingService.chargeMembership(card, MEMBERSHIP_COST, registeredUser.getEmail());
 
         /*
-         * If we get here, no exceptions occured during billing, so the membership is valid.
+         * If we get here, no exceptions occured during billing, so the membership is
+         * valid.
          */
 
         /*
          * If membershipExpiry is expired, or doesn't exist.
          */
         if (registeredUser.getMembershipExpiry() == null
-            || LocalDate.now().compareTo(registeredUser.getMembershipExpiry()) > 0) {
+                || LocalDate.now().compareTo(registeredUser.getMembershipExpiry()) > 0) {
             /*
              * Membership term counts from today, so subtract a day from one year.
              */
