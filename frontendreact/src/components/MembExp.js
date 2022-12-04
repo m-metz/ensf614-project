@@ -12,6 +12,7 @@ function MembExp() {
   async function GetUserByEmail() {
     //
     ru = await getFetch("http://localhost:8080/RegisteredUser/" + email);
+    //console.log(ru.membershipExpiry);
     return ru;
   }
 
