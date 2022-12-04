@@ -44,7 +44,7 @@ public class MovieTheatreApplication {
 	// };
 	// }
 
-	@Bean
+	// @Bean
 	public CommandLineRunner demo(MovieRepository movieRepository, TheatreRepository theatreRepository,
 			ScreenRepository screenRepository, ShowtimeRepository showtimeRepository,
 			TicketRepository ticketRepository, TransactionRepository transactionRepository,
