@@ -154,10 +154,13 @@ public class MovieTheatreApplication {
 			// add few registered users
 			RegisteredUser user = new RegisteredUser("fake.email@gmail.com", "Fake User",
 					"Nice Address, Calgary, AB, Canada", "admin");
-
+			user.setMembershipExpiry(LocalDate.of(2023, 5, 3));
 			registeredUserRepository.save(user);
-			registeredUserRepository.save(new RegisteredUser("John.Smith@gmail.com", "John Smith",
-					"Nice Address, Calgary, AB, Canada", "admin"));
+
+			RegisteredUser user2 = new RegisteredUser("John.Smith@gmail.com", "John Smith",
+					"Nice Address, Calgary, AB, Canada", "admin");
+			user2.setMembershipExpiry(LocalDate.of(2023, 2, 3));
+			registeredUserRepository.save(user2);
 
 			// add card to user
 			cardRepository.save(new Card("1234123412341234", 123, "Fake User", LocalDate.of(2023, 12, 1),
