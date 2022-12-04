@@ -129,4 +129,15 @@ public class Card {
         this.registeredUser = registeredUser;
     }
 
+    @Override
+    public String toString() {
+        
+        RegisteredUser nullCheckRegisteredUser = registeredUser;
+
+        return "Card [id=" + id + ", number=" + number + ", cvv=" + cvv + ", nameOfHolder="
+            + nameOfHolder + ", expiryDate=" + expiryDate + ", billingPostal=" + billingPostal
+            + ", type=" + type + ", registeredUserId="
+            + (nullCheckRegisteredUser != null ? nullCheckRegisteredUser.getId() : null)
+            + "]";
+    }
 }
