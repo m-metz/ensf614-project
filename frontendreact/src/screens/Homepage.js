@@ -8,11 +8,14 @@ function Homepage() {
     const[isLoading, setIsLoading] = useState(true);
     const [loadedMovies, setLoadedMovies] = useState([]);
 
-    getFetch("http://localhost:8080/movie/all/active/public")
-    .then(data => {
+    if(isLoading){
+
+        getFetch("http://localhost:8080/movie/all/active/public")
+        .then(data => {
         setIsLoading(false);
         setLoadedMovies(data);
     });
+}
 
     if(isLoading) {
         return <section>
