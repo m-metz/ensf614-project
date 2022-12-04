@@ -9,7 +9,7 @@ export default function BuyTicketsPage() {
     window.location.pathway = "/";
     window.location.href = window.location.pathway;
   }
-  function SubmitHander() {
+  async function SubmitHander() {
     let paymentform;
     let cvv;
     let cardName;
@@ -20,19 +20,20 @@ export default function BuyTicketsPage() {
 
     if (isLoggedIn) {
       //Verify credentials with server
-      let user = getFetch("http://localhost:8080/RegisteredUser/" + email); // password??
+      let user = await getFetch("http://localhost:8080/RegisteredUser/" + email); // password??
 
       if (user["error"] === "Internal Server Error") {
         alert(user.message);
         return -1;
       }
+      console.log(user);
       //make a fetch request based on email
-      cvv = user.paymentCards.cvv.value;
-      cardName = user.paymentCards.nameOfHolder.value;
-      expiryDate = user.paymentCards.expiryDate.value;
-      postal = user.paymentCards.billingPostal.value;
-      type = user.paymentCards.type.value;
-      cardnum = user.paymentCards.lastFourDigits.value; //where can we get the full CC value?
+      cvv = user.paymentCards.cvv;
+      cardName = user.paymentCards.nameOfHolder;
+      expiryDate = user.paymentCards.expiryDate;
+      postal = user.paymentCards.billingPostal;
+      type = user.paymentCards.type;
+      cardnum = user.paymentCards.lastFourDigits; //where can we get the full CC value?
       //calculate total amount of vouchers
     } else {
       paymentform = document.getElementById("Paymentinfo");
@@ -74,15 +75,16 @@ export default function BuyTicketsPage() {
         document.getElementById("voucherForm").voucher.value,
     };
 
-      console.log(SubmitObject);
-    async function getResponse() {
+    // async function getResponse() {
       let response = await postFetch(
         "http://localhost:8080/transaction/tickets",
         SubmitObject
       );
 
-      console.log(response);
-      if (response["error"] !== "Internal Server Error") {
+      console.log("RESPNSE",response);
+
+      if (response["status"] === 400 || 500) {
+        // if (response["error"] === "Internal Server Error") {
         alert(response.message);
       }else{
 
@@ -91,15 +93,8 @@ export default function BuyTicketsPage() {
     window.location.pathway = "/";
     window.location.href = window.location.pathway;
       }
-      // if (response["status"] === 400 || 500) {
-      //   if (response["error"] === "Internal Server Error") {
-      //   alert(response.message);
-      //   return -1;
-      // } else {
-      //   alert("Success! You will shortly get an email with your tickets.");
-      // }
-    }
-    getResponse();
+    // }
+    // getResponse();
   }
   return (
     <div>
