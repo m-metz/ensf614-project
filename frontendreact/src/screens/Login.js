@@ -18,8 +18,16 @@ function Login() {
             alert(user.message);
             return -1;
         }
+        let memExpiry = await getFetch("http://localhost:8080/RegisteredUser/" + loginForm.email.value);
         sessionStorage.setItem("currentEmail", loginForm.email.value);
         sessionStorage.setItem("currentPassword", loginForm.password.value);
+        sessionStorage.setItem("currentName", user.name);
+        sessionStorage.setItem("currentAddress", user.address);
+        let paymentCardObject = user.paymentCards[0];
+        for(const element in paymentCardObject) (
+            sessionStorage.setItem(element, paymentCardObject[element])
+        )
+        sessionStorage.setItem("memExpiry", memExpiry.membershipExpiry);
         console.log(`current email ${sessionStorage.getItem("currentEmail")}`);
         window.location.pathway = '/';
         window.location.href = window.location.pathway;

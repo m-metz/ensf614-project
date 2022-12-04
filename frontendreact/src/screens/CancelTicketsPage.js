@@ -6,7 +6,6 @@ export default function CancelTicketPage() {
     async function cancelHandler() {
         let cancelForm = document.getElementById('cancelForm');
         let ticketNum = cancelForm.ticketnum.value;
-        let email = cancelForm.email.value;
 
         //getTickettoCheckIfValid
         let ticket = await getFetch("http://localhost:8080/ticket/"+ticketNum);
@@ -17,7 +16,7 @@ export default function CancelTicketPage() {
             return -1;
         }
 
-        let cancellation = await postFetch(("http://localhost:8080/cancel/"+ticketNum+"/"+email), null);
+        let cancellation = await postFetch(("http://localhost:8080/cancel/"+ticketNum), null);
         console.log(cancellation.message);
         if(cancellation["error"] === "Internal Server Error") {
             alert("Error: "+cancellation.message);
@@ -35,9 +34,6 @@ export default function CancelTicketPage() {
     </h3>
     <br></br>
     <form onSubmit={e => { e.preventDefault(); }} id="cancelForm">
-        <label>Enter your email: </label>
-        <input type="text" id="email" name="email" required></input>
-        <br></br><br></br>
         <label>Enter your ticket number: </label>
         <input type="text" id="ticketnum" name="ticketnum" required></input>
         <br></br><br></br><br></br>

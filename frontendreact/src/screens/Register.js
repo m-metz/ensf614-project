@@ -2,6 +2,7 @@ import Paymentinfo from '../components/Paymentinfo';
 import { useState } from 'react';
 import Backdrop from '../components/Backdrop';
 import Homepage from '../screens/Homepage'
+import { postFetch } from '../fetch';
 
 function Register(props) {
 
@@ -27,26 +28,27 @@ function Register(props) {
             type = "debit";
         }
 
-
-        console.log(cardName);
         //post all information to server
         let data = {
         email: registerForm.email.value,
         name: registerForm.name.value,
         address: registerForm.address.value,
-        password: registerForm.password.value,
         paymentCards: [
             {
+                number: cardNum,
                 cvv: cvv,
                 nameOfHolder: cardName,
                 expiryDate: cardExp,
                 billingPostal: postal,
-                type: type,
-                number: cardNum
+                type: type
+                
             }
-        ]}
+        ],
+        password: registerForm.password.value
+        }
         console.log(data);
         
+        postFetch("http://localhost:8080/RegisteredUser", data).then(data => console.log(data));
         //If user email does not already exist
         alert("Thanks for registering! You will be redirected to the login page now");
         window.location.pathway = '/login';

@@ -25,7 +25,7 @@ function Homepage() {
                     <Box sx={{margin: "1rem"}} >
 
         <section className="card">
-            <MembExp></MembExp>
+            {/* <MembExp></MembExp> */}
             <h1>In Theaters Now! Search All Movies: </h1>
             <Movielist movies={loadedMovies} />
         </section>

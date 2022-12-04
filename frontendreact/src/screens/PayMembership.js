@@ -4,29 +4,11 @@ import {useState} from 'react';
 
 function PayMembership() {
 
-    function payMembershipHandler() {
+    async function payMembershipHandler() {
     
-        postFetch("PAYFEEAPI", "ANYOTHER INFO");
+        postFetch("http://localhost:8080/RegisteredUser/"+sessionStorage.currentEmail+"/renew-membership", null).then(data => console.log(data));
+        alert("Renewal Successful!");
     }
-
-    const[isLoading, setIsLoading] = useState(true);
-    const [user, setUser] = useState([]);
-    
-    // getFetch("http://localhost:8080/RegisteredUser/"+sessionStorage.currentEmail+"/"+sessionStorage.currentPassword)
-    // .then(data => {
-    //     setIsLoading(false);
-    //     setUser(data);
-    // });
-
-    // if(isLoading) {
-    //     return <section>
-    //         <p>Loading...</p>
-    //     </section>
-    // }
-
-    // if(!isLoading) {
-    //     console.log(user);
-    // }
     
     return (
     <div  className="card">
@@ -34,16 +16,19 @@ function PayMembership() {
         Account Information:
         </h3>
     <div>
-        <span><label>Member Name: {user.name}</label></span>
+        <span><label>Member Name: {sessionStorage.currentName}</label></span>
         <br></br><br></br>
-        <label>Member Email: {user.email}</label>
+        <label>Member Address: {sessionStorage.currentAddress}</label>
+        <br></br><br></br>
+        <label>Member Email: {sessionStorage.currentEmail}</label>
         <br></br><br></br>
         <h4>Payment Information: </h4>
-        {/* <label>Card Type: {member.paymentInfo.cardType}</label><br></br>
-        <label>Card Number: {member.paymentInfo.cardNum}</label><br></br>
-        <label>Card Expiry: {member.paymentInfo.cardExpiry}</label><br></br><br></br> */}
+        <label>Card Type: {sessionStorage.type}</label><br></br>
+        <label>Card Number: {sessionStorage.lastFourDigits}</label><br></br>
+        <label>Card Billing Postal: {sessionStorage.billingPostal}</label><br></br>
         <div>
-        <button className='btn' onClick={payMembershipHandler}>Pay Annual Fee</button>
+        <h4>Your membership expires on: {sessionStorage.memExpiry}</h4>
+        <button className='btn' onClick={payMembershipHandler}>Renew Membership</button>
         </div>
     </div>
     </div>
