@@ -28,7 +28,7 @@ public class MockBillingService implements BillingService {
 
     private void charge(String lineItem, Card card, double amount, String userEmail) {
         validate(card);
-        System.out.println( "Line Item " + lineItem + ", $" + amount + " charged to " + card + " and validated with the card and email " + userEmail + ".");
+        System.out.println( "Line item \"" + lineItem + "\", " + String.format("$%.2f", amount) + " charged to " + card + " and validated with the card and email " + userEmail + ".");
     }
 
     public void validate(Card card) throws IllegalStateException {
