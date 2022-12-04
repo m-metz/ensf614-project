@@ -61,7 +61,7 @@ export default function BuyTicketsPage() {
     });
 
     let SubmitObject = {
-      userEmail: email,
+      email: email,
       showtimeId: currentShowtimeId,
       seats: ticketObject,
       paymentCard: {
@@ -85,7 +85,7 @@ export default function BuyTicketsPage() {
         SubmitObject
       );
 
-      console.log("RESPNSE",response);
+      console.log(response);
 
       // if (response["status"] === 400 || 500) {
       if (response["error"] === "Internal Server Error") {
