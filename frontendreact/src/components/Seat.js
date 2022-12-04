@@ -45,7 +45,7 @@ function Seat(props) {
       onClick={seatSelectHandler}
       sx={{ width: "1em" }}
     >
-       {props.seatNum}
+       Num: {props.seatNum} 
       {/* {props.seatRow}, {props.seatNum} */}
     </Button>
   );
