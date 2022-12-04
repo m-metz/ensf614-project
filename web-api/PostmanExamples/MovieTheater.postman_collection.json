@@ -1461,10 +1461,45 @@
 							]
 						}
 					},
-					"_postman_previewlanguage": null,
-					"header": null,
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 04 Dec 2022 04:39:17 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
 					"cookie": [],
-					"body": null
+					"body": "[\n    {\n        \"id\": 1081,\n        \"price\": 9.99,\n        \"showtime\": {\n            \"id\": 1,\n            \"movie\": {\n                \"id\": 1,\n                \"title\": \"Black Panther: Wakanda Forever\",\n                \"releaseDate\": \"2022-11-11\",\n                \"director\": \"Ryan Coogler\",\n                \"genre\": \"Action\",\n                \"image\": \"blackpantherwakandaforever_lob_crd_05.jpg\",\n                \"public\": true,\n                \"active\": true\n            },\n            \"date\": \"2022-12-14\",\n            \"time\": \"19:00:00\",\n            \"screen\": {\n                \"id\": 1,\n                \"screenNum\": 1\n            },\n            \"screenCapcity\": 100,\n            \"moviePublic\": true,\n            \"movieActive\": true\n        },\n        \"seatNum\": 6,\n        \"rowNum\": 1,\n        \"transaction\": {\n            \"id\": 1081,\n            \"number\": 278128672518931,\n            \"date\": \"2022-12-03T21:39:17.4098991\",\n            \"userEmail\": \"fake.email@gmail.com\",\n            \"totalPrice\": 9.99\n        },\n        \"cancelled\": false\n    },\n    {\n        \"id\": 1082,\n        \"price\": 9.99,\n        \"showtime\": {\n            \"id\": 1,\n            \"movie\": {\n                \"id\": 1,\n                \"title\": \"Black Panther: Wakanda Forever\",\n                \"releaseDate\": \"2022-11-11\",\n                \"director\": \"Ryan Coogler\",\n                \"genre\": \"Action\",\n                \"image\": \"blackpantherwakandaforever_lob_crd_05.jpg\",\n                \"public\": true,\n                \"active\": true\n            },\n            \"date\": \"2022-12-14\",\n            \"time\": \"19:00:00\",\n            \"screen\": {\n                \"id\": 1,\n                \"screenNum\": 1\n            },\n            \"screenCapcity\": 100,\n            \"moviePublic\": true,\n            \"movieActive\": true\n        },\n        \"seatNum\": 7,\n        \"rowNum\": 1,\n        \"transaction\": {\n            \"id\": 1081,\n            \"number\": 278128672518931,\n            \"date\": \"2022-12-03T21:39:17.4098991\",\n            \"userEmail\": \"fake.email@gmail.com\",\n            \"totalPrice\": 9.99\n        },\n        \"cancelled\": false\n    }\n]"
 				},
 				{
 					"name": "BuyTicket - no credit code",

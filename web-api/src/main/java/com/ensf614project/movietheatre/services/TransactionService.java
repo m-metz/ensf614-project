@@ -1,5 +1,6 @@
 package com.ensf614project.movietheatre.services;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -127,7 +128,8 @@ public class TransactionService {
             transaction = billingService.charge(paymentCard, amountToChargeCard, email);
             TransactionRepository.save(transaction);
         } else {
-            transaction = null;
+            transaction = new Transaction(LocalDateTime.now(), email, 0);
+            TransactionRepository.save(transaction);
         }
 
         // create and save tickets
