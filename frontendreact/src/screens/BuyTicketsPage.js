@@ -1,15 +1,11 @@
 import { Button } from "@mui/material";
 import Paymentinfo from "../components/Paymentinfo";
-import { getFetch } from "../fetch";
+import { getFetch, postFetch } from "../fetch";
 let voucher = 0;
 export default function BuyTicketsPage() {
-  const email = sessionStorage.getItem("currentEmail");
+  let email = sessionStorage.getItem("currentEmail");
   const isLoggedIn = email !== null && email !== "null";
   function SubmitHander() {
-    // {isLoggedIn ? (a =0): ( a = 4)}
-    //Is the user logged in? If so, query their info
-    //If not, get all their info from form
-
     let paymentform;
     let cvv;
     let cardName;
@@ -42,36 +38,50 @@ export default function BuyTicketsPage() {
       postal = paymentform.postal.value;
       type = paymentform.cardtype.value;
       cardnum = paymentform.cardnum.value;
+      email = document.getElementById("emailForm").email.value;
     }
     let ticketObject = [];
     let tickets = JSON.parse(sessionStorage.getItem("selectedSeats"));
-    let currentShowtimeId = sessionStorage.getItem("currentShowtimeId");
+    let currentShowtimeId = JSON.parse(
+      sessionStorage.getItem("currentShowtimeId")
+    );
 
-    console.log(tickets + "are tickx")
     tickets.forEach((element) => {
       ticketObject.push({
-        currentShowtimeId: currentShowtimeId,
-        seatNum: element.seatNum,
-        seatRow: element.seatRow
+        rowNum: element[0],
+        seatNum: element[1],
       });
     });
 
     let SubmitObject = {
-      userEmail: document.getElementById("emailForm").email.value,
-      Tickets: ticketObject,
-      paymentCards: [
-        {
-          cvv: cvv,
-          nameOfHolder: cardName,
-          expiryDate: expiryDate,
-          billingPostal: postal,
-          type: type,
-          number: cardnum,
-        },
-      ],
-      voucher: document.getElementById("voucherForm").voucher.value,
+      userEmail: email,
+      showtimeId: currentShowtimeId,
+      seats: ticketObject,
+      paymentCard: {
+        cvv: cvv,
+        nameOfHolder: cardName,
+        expiryDate: expiryDate,
+        billingPostal: postal,
+        type: type,
+        number: cardnum,
+      },
+
+      cancellationCreditCode:
+        document.getElementById("voucherForm").voucher.value,
     };
     console.log(SubmitObject);
+
+    let response = postFetch(
+      "http://localhost:8080/transaction/tickets",
+      SubmitObject
+    ).then((data) => {
+      console.log(data);
+    });
+
+    if (response["error"] === "Internal Server Error") {
+      alert(response.message);
+      return -1;
+    }
   }
   return (
     <div>
@@ -107,8 +117,6 @@ export default function BuyTicketsPage() {
               name="email"
               required
             ></input>
-            <br></br>
-            <br></br>
           </form>
           <Paymentinfo />
         </>
@@ -129,11 +137,12 @@ export default function BuyTicketsPage() {
       </form>
       <Button
         variant="contained"
+        class="btn"
+        margin="1rem"
         onClick={SubmitHander}
       >
         Buy Tickets
       </Button>
     </div>
-    //put in grand total
   );
 }

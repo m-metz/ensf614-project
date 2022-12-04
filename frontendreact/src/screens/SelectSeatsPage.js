@@ -38,6 +38,7 @@ function SelectSeatsPage() {
           <Box padding={"1rem"}>
             <Button
               variant="contained"
+              class="btn"
               onClick={ConfirmSelection}
             >
               Confirm Selection
