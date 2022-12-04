@@ -74,6 +74,7 @@ export default function BuyTicketsPage() {
         document.getElementById("voucherForm").voucher.value,
     };
 
+      console.log(SubmitObject);
     async function getResponse() {
       let response = await postFetch(
         "http://localhost:8080/transaction/tickets",
@@ -81,14 +82,22 @@ export default function BuyTicketsPage() {
       );
 
       console.log(response);
-
-      if (response["status"] === 400 || 500) {
-        // if (response["error"] === "Internal Server Error") {
+      if (response["error"] !== "Internal Server Error") {
         alert(response.message);
-        return -1;
-      } else {
+      }else{
+
         alert("Success! You will shortly get an email with your tickets.");
+
+    window.location.pathway = "/";
+    window.location.href = window.location.pathway;
       }
+      // if (response["status"] === 400 || 500) {
+      //   if (response["error"] === "Internal Server Error") {
+      //   alert(response.message);
+      //   return -1;
+      // } else {
+      //   alert("Success! You will shortly get an email with your tickets.");
+      // }
     }
     getResponse();
   }
