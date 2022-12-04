@@ -10,6 +10,10 @@ function ConfirmSelection() {
   window.location.pathway = "/buyticketspage";
   window.location.href = window.location.pathway;
 }
+  function cancelHandler() {
+    window.location.pathway = "/";
+    window.location.href = window.location.pathway;
+  }
 function SelectSeatsPage() {
   return (
     <section>
@@ -43,6 +47,10 @@ function SelectSeatsPage() {
             >
               Confirm Selection
             </Button>
+      <button
+        className="btn btn--alt"
+        onClick={cancelHandler}
+      >Cancel</button>
           </Box>
         </Grid>
         <Grid item></Grid>

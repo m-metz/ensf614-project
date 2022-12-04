@@ -1,10 +1,14 @@
-import { Button } from "@mui/material";
+import { Box, Button } from "@mui/material";
 import Paymentinfo from "../components/Paymentinfo";
 import { getFetch, postFetch } from "../fetch";
 let voucher = 0;
 export default function BuyTicketsPage() {
   let email = sessionStorage.getItem("currentEmail");
   const isLoggedIn = email !== null && email !== "null";
+  function cancelHandler() {
+    window.location.pathway = "/";
+    window.location.href = window.location.pathway;
+  }
   function SubmitHander() {
     let paymentform;
     let cvv;
@@ -79,7 +83,7 @@ export default function BuyTicketsPage() {
       console.log(response);
 
       if (response["status"] === 400 || 500) {
-      // if (response["error"] === "Internal Server Error") {
+        // if (response["error"] === "Internal Server Error") {
         alert(response.message);
         return -1;
       } else {
@@ -90,6 +94,7 @@ export default function BuyTicketsPage() {
   }
   return (
     <div>
+              <Box sx={{margin: "1rem"}} >
       <h1> Ticket Shopping Cart </h1>
       <h2> You are buying tickets for</h2>
       <p>Movie: {[sessionStorage.getItem("currentMovie")]}</p>
@@ -103,43 +108,51 @@ export default function BuyTicketsPage() {
             voucher}{" "}
         </b>
       </p>
-
+        </Box>
       {isLoggedIn ? (
         <div>We already have your payment information on file, {email}</div>
       ) : (
         <>
-          <form
-            onSubmit={(e) => {
-              e.preventDefault();
-            }}
-            id="emailForm"
-            class="card"
-          >
-            <label>Enter your email: </label>
-            <input
-              type="text"
-              id="email"
-              name="email"
-              required
-            ></input>
-          </form>
-          <Paymentinfo />
+          <Box sx={{ margin: "1rem" }}>
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+              }}
+              id="emailForm"
+              class="card"
+            >
+              <label>Enter your email: </label>
+              <input
+                type="text"
+                id="email"
+                name="email"
+                required
+              ></input>
+            </form>
+          </Box>
+          <Box sx={{ margin: "1rem" }}>
+            <Paymentinfo />
+          </Box>
         </>
       )}
-      <form
-        onSubmit={(e) => {
-          e.preventDefault();
-        }}
-        id="voucherForm"
-        class="card"
-      >
-        <label>Voucher info (will be subtracted from the total above): </label>
-        <input
-          type="text"
-          id="voucher"
-          name="voucher"
-        ></input>
-      </form>
+      <Box sx={{ margin: "1rem" }}>
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+          }}
+          id="voucherForm"
+          class="card"
+        >
+          <label>
+            Voucher info (will be subtracted from the total above):{" "}
+          </label>
+          <input
+            type="text"
+            id="voucher"
+            name="voucher"
+          ></input>
+        </form>
+      </Box>
       <Button
         variant="contained"
         class="btn"
@@ -148,6 +161,10 @@ export default function BuyTicketsPage() {
       >
         Buy Tickets
       </Button>
+      <button
+        className="btn btn--alt"
+        onClick={cancelHandler}
+      >Cancel</button>
     </div>
   );
 }
