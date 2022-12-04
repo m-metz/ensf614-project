@@ -875,13 +875,147 @@
 			]
 		},
 		{
+			"name": "RegisteredUser/{email}",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{scheme}}://{{hostPort}}/RegisteredUser/fake.email@gmail.com",
+					"protocol": "{{scheme}}",
+					"host": [
+						"{{hostPort}}"
+					],
+					"path": [
+						"RegisteredUser",
+						"fake.email@gmail.com"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "RegisteredUser/{email} - User Found",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{scheme}}://{{hostPort}}/RegisteredUser/fake.email@gmail.com",
+							"protocol": "{{scheme}}",
+							"host": [
+								"{{hostPort}}"
+							],
+							"path": [
+								"RegisteredUser",
+								"fake.email@gmail.com"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "Content-Disposition",
+							"value": "inline;filename=f.txt"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 04 Dec 2022 06:47:35 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"email\": \"fake.email@gmail.com\",\n    \"name\": \"Fake User\",\n    \"address\": \"Nice Address, Calgary, AB, Canada\",\n    \"paymentCards\": [\n        {\n            \"id\": 1,\n            \"number\": \"1234123412341234\",\n            \"cvv\": 123,\n            \"nameOfHolder\": \"Fake User\",\n            \"expiryDate\": \"2023-12-01\",\n            \"billingPostal\": \"D6KB9F\",\n            \"type\": \"Credit\",\n            \"lastFourDigits\": \"1234\"\n        }\n    ],\n    \"cancellationCredits\": [\n        {\n            \"id\": 1,\n            \"expiryDate\": \"2023-02-03\",\n            \"creditValue\": 9.99,\n            \"creditCode\": \"code1\"\n        },\n        {\n            \"id\": 2,\n            \"expiryDate\": \"2023-04-13\",\n            \"creditValue\": 9.99,\n            \"creditCode\": \"code2\"\n        }\n    ]\n}"
+				},
+				{
+					"name": "RegisteredUser/{email} - User Missing",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{scheme}}://{{hostPort}}/RegisteredUser/fake.email@gmail.comm",
+							"protocol": "{{scheme}}",
+							"host": [
+								"{{hostPort}}"
+							],
+							"path": [
+								"RegisteredUser",
+								"fake.email@gmail.comm"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "Content-Length",
+							"value": "0"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 04 Dec 2022 06:48:14 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
 			"name": "RegisteredUser",
 			"request": {
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"email\": \"fake.email3@gmail.com\",\r\n    \"name\": \"Fake User\",\r\n    \"address\": \"Nice Address SW, Calgary, AB T2A 4G6, Canada\",\r\n    \"password\": \"demoPassword\",\r\n    \"paymentCards\": [\r\n        {\r\n            \"number\": \"1234567890123456\",\r\n            \"cvv\": 123,\r\n            \"nameOfHolder\": \"Fake User\",\r\n            \"expiryDate\": \"2023-12-01\",\r\n            \"billingPostal\": \"D6KB9F\",\r\n            \"type\": \"Credit\"\r\n        }\r\n    ]\r\n}",
+					"raw": "{\r\n    \"email\": \"fake.email@gmail.com\",\r\n    \"name\": \"Fake User\",\r\n    \"address\": \"Nice Address SW, Calgary, AB T2A 4G6, Canada\",\r\n    \"password\": \"demoPassword\",\r\n    \"paymentCards\": [\r\n        {\r\n            \"number\": \"1234567890123456\",\r\n            \"cvv\": 123,\r\n            \"nameOfHolder\": \"Fake User\",\r\n            \"expiryDate\": \"2023-12-01\",\r\n            \"billingPostal\": \"D6KB9F\",\r\n            \"type\": \"Credit\"\r\n        }\r\n    ]\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -901,13 +1035,13 @@
 			},
 			"response": [
 				{
-					"name": "RegisteredUser  - no ids - success",
+					"name": "RegisteredUser",
 					"originalRequest": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"email\": \"fake.email40@gmail.com\",\r\n    \"name\": \"Fake User\",\r\n    \"address\": \"Nice Address SW, Calgary, AB T2A 4G6, Canada\",\r\n    \"password\": \"demoPassword\",\r\n    \"paymentCards\": [\r\n        {\r\n            \"number\": \"1234567890123456\",\r\n            \"cvv\": 123,\r\n            \"nameOfHolder\": \"Fake User\",\r\n            \"expiryDate\": \"2023-12-01\",\r\n            \"billingPostal\": \"D6KB9F\",\r\n            \"type\": \"Credit\"\r\n        }\r\n    ]\r\n}",
+							"raw": "{\r\n    \"email\": \"fake.email3@gmail.com\",\r\n    \"name\": \"Fake User\",\r\n    \"address\": \"Nice Address SW, Calgary, AB T2A 4G6, Canada\",\r\n    \"password\": \"demoPassword\",\r\n    \"paymentCards\": [\r\n        {\r\n            \"number\": \"1234567890123456\",\r\n            \"cvv\": 123,\r\n            \"nameOfHolder\": \"Fake User\",\r\n            \"expiryDate\": \"2023-12-01\",\r\n            \"billingPostal\": \"D6KB9F\",\r\n            \"type\": \"Credit\"\r\n        }\r\n    ]\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -915,11 +1049,12 @@
 							}
 						},
 						"url": {
-							"raw": "{{scheme}}://{{hostPort}}/RegisteredUser",
-							"protocol": "{{scheme}}",
+							"raw": "http://localhost:8080/RegisteredUser",
+							"protocol": "http",
 							"host": [
-								"{{hostPort}}"
+								"localhost"
 							],
+							"port": "8080",
 							"path": [
 								"RegisteredUser"
 							]
@@ -951,7 +1086,7 @@
 						},
 						{
 							"key": "Date",
-							"value": "Sat, 03 Dec 2022 10:26:30 GMT"
+							"value": "Sun, 04 Dec 2022 21:36:40 GMT"
 						},
 						{
 							"key": "Keep-Alive",
@@ -963,7 +1098,7 @@
 						}
 					],
 					"cookie": [],
-					"body": "{\n    \"id\": 33,\n    \"email\": \"fake.email40@gmail.com\",\n    \"name\": \"Fake User\",\n    \"address\": \"Nice Address SW, Calgary, AB T2A 4G6, Canada\",\n    \"paymentCards\": [\n        {\n            \"id\": 17,\n            \"number\": \"1234567890123456\",\n            \"cvv\": 123,\n            \"nameOfHolder\": \"Fake User\",\n            \"expiryDate\": \"2023-12-01\",\n            \"billingPostal\": \"D6KB9F\",\n            \"type\": \"Credit\",\n            \"lastFourDigits\": \"3456\"\n        }\n    ],\n    \"cancellationCredits\": null\n}"
+					"body": "{\n    \"id\": 3,\n    \"email\": \"fake.email3@gmail.com\",\n    \"name\": \"Fake User\",\n    \"address\": \"Nice Address SW, Calgary, AB T2A 4G6, Canada\",\n    \"membershipExpiry\": \"2023-12-03\",\n    \"paymentCards\": [\n        {\n            \"id\": 2,\n            \"number\": \"1234567890123456\",\n            \"cvv\": 123,\n            \"nameOfHolder\": \"Fake User\",\n            \"expiryDate\": \"2023-12-01\",\n            \"billingPostal\": \"D6KB9F\",\n            \"type\": \"Credit\",\n            \"lastFourDigits\": \"3456\"\n        }\n    ],\n    \"cancellationCredits\": null\n}"
 				},
 				{
 					"name": "RegisteredUser - ids for user and card ignored - success",
@@ -1028,7 +1163,7 @@
 						}
 					],
 					"cookie": [],
-					"body": "{\n    \"id\": 32,\n    \"email\": \"fake.email39@gmail.com\",\n    \"name\": \"Fake User\",\n    \"address\": \"Nice Address SW, Calgary, AB T2A 4G6, Canada\",\n    \"paymentCards\": [\n        {\n            \"id\": 16,\n            \"number\": \"1234567890123456\",\n            \"cvv\": 123,\n            \"nameOfHolder\": \"Fake User\",\n            \"expiryDate\": \"2023-12-01\",\n            \"billingPostal\": \"D6KB9F\",\n            \"type\": \"Credit\",\n            \"lastFourDigits\": \"3456\"\n        }\n    ],\n    \"cancellationCredits\": null\n}"
+					"body": "{\n    \"id\": 32,\n    \"email\": \"fake.email39@gmail.com\",\n    \"name\": \"Fake User\",\n    \"address\": \"Nice Address SW, Calgary, AB T2A 4G6, Canada\",\n    \"membershipExpiry\": \"2023-12-03\",\n    \"paymentCards\": [\n        {\n            \"id\": 16,\n            \"number\": \"1234567890123456\",\n            \"cvv\": 123,\n            \"nameOfHolder\": \"Fake User\",\n            \"expiryDate\": \"2023-12-01\",\n            \"billingPostal\": \"D6KB9F\",\n            \"type\": \"Credit\",\n            \"lastFourDigits\": \"3456\"\n        }\n    ],\n    \"cancellationCredits\": null\n}"
 				},
 				{
 					"name": "RegisteredUser - duplicate email",
@@ -1155,6 +1290,26 @@
 			]
 		},
 		{
+			"name": "RegisteredUser/{e-mail}/renew-membership",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{scheme}}://{{hostPort}}/RegisteredUser/fake.email@gmail.com/renew-membership",
+					"protocol": "{{scheme}}",
+					"host": [
+						"{{hostPort}}"
+					],
+					"path": [
+						"RegisteredUser",
+						"fake.email@gmail.com",
+						"renew-membership"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "CancelTicket",
 			"request": {
 				"method": "POST",
@@ -1162,12 +1317,12 @@
 			},
 			"response": [
 				{
-					"name": "RegularUser",
+					"name": "RegisteredUserTicket",
 					"originalRequest": {
 						"method": "POST",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/cancel/2/test@gmail.com",
+							"raw": "http://localhost:8080/cancel/1/",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -1175,8 +1330,8 @@
 							"port": "8080",
 							"path": [
 								"cancel",
-								"2",
-								"test@gmail.com"
+								"1",
+								""
 							]
 						}
 					},
@@ -1185,8 +1340,16 @@
 					"_postman_previewlanguage": "json",
 					"header": [
 						{
-							"key": "Content-Disposition",
-							"value": "inline;filename=f.txt"
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
 						},
 						{
 							"key": "Content-Type",
@@ -1198,7 +1361,7 @@
 						},
 						{
 							"key": "Date",
-							"value": "Thu, 01 Dec 2022 06:55:29 GMT"
+							"value": "Sun, 04 Dec 2022 21:31:33 GMT"
 						},
 						{
 							"key": "Keep-Alive",
@@ -1210,7 +1373,66 @@
 						}
 					],
 					"cookie": [],
-					"body": "{\n    \"id\": 12,\n    \"expiryDate\": \"2023-11-30\",\n    \"creditValue\": 8.49,\n    \"creditCode\": \"XWkBAUK7OK\"\n}"
+					"body": "{\n    \"id\": 11,\n    \"expiryDate\": \"2023-12-04\",\n    \"creditValue\": 9.99,\n    \"creditCode\": \"WOHfW8NUv0\"\n}"
+				},
+				{
+					"name": "RegularUserTicket",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/cancel/500/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cancel",
+								"500",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 04 Dec 2022 21:32:30 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 12,\n    \"expiryDate\": \"2023-12-04\",\n    \"creditValue\": 8.49,\n    \"creditCode\": \"rwzDnZvFIQ\"\n}"
 				},
 				{
 					"name": "RegisteredUser",
