@@ -7,7 +7,7 @@ function PayMembership() {
     async function payMembershipHandler() {
     
         postFetch("http://localhost:8080/RegisteredUser/"+sessionStorage.currentEmail+"/renew-membership", null);
-        let updatedMemberExpiry = 
+        //let updatedMemberExpiry = 
         alert("Renewal Successful!");
     }
     

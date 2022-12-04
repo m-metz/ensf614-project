@@ -5,6 +5,7 @@ let voucher = 0;
 export default function BuyTicketsPage() {
   let email = sessionStorage.getItem("currentEmail");
   const isLoggedIn = email !== null && email !== "null";
+
   function cancelHandler() {
     window.location.pathway = "/";
     window.location.href = window.location.pathway;
@@ -26,14 +27,15 @@ export default function BuyTicketsPage() {
         alert(user.message);
         return -1;
       }
+
       console.log(user);
       //make a fetch request based on email
-      cvv = user.paymentCards.cvv;
-      cardName = user.paymentCards.nameOfHolder;
-      expiryDate = user.paymentCards.expiryDate;
-      postal = user.paymentCards.billingPostal;
-      type = user.paymentCards.type;
-      cardnum = user.paymentCards.lastFourDigits; //where can we get the full CC value?
+      cvv = user.paymentCards[0].cvv;
+      cardName = user.paymentCards[0].nameOfHolder;
+      expiryDate = user.paymentCards[0].expiryDate;
+      postal = user.paymentCards[0].billingPostal;
+      type = user.paymentCards[0].type;
+      cardnum = user.paymentCards[0].number;
       //calculate total amount of vouchers
     } else {
       paymentform = document.getElementById("Paymentinfo");
@@ -75,6 +77,8 @@ export default function BuyTicketsPage() {
         document.getElementById("voucherForm").voucher.value,
     };
 
+    console.log(SubmitObject);
+
     // async function getResponse() {
       let response = await postFetch(
         "http://localhost:8080/transaction/tickets",
@@ -83,12 +87,15 @@ export default function BuyTicketsPage() {
 
       console.log("RESPNSE",response);
 
-      if (response["status"] === 400 || 500) {
-        // if (response["error"] === "Internal Server Error") {
+      // if (response["status"] === 400 || 500) {
+      if (response["error"] === "Internal Server Error") {
         alert(response.message);
         return -1;
       } else {
+        console.log("Successful tickets bought");
         alert("Success! You will shortly get an email with your tickets.");
+        window.location.pathway = '/';
+        window.location.href = window.location.pathway;
       }
     // }
     // getResponse();
