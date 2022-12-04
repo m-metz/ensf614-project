@@ -69,19 +69,24 @@ export default function BuyTicketsPage() {
       cancellationCreditCode:
         document.getElementById("voucherForm").voucher.value,
     };
-    console.log(SubmitObject);
 
-    let response = postFetch(
-      "http://localhost:8080/transaction/tickets",
-      SubmitObject
-    ).then((data) => {
-      console.log(data);
-    });
+    async function getResponse() {
+      let response = await postFetch(
+        "http://localhost:8080/transaction/tickets",
+        SubmitObject
+      );
 
-    if (response["error"] === "Internal Server Error") {
-      alert(response.message);
-      return -1;
+      console.log(response);
+
+      if (response["status"] === 400 || 500) {
+      // if (response["error"] === "Internal Server Error") {
+        alert(response.message);
+        return -1;
+      } else {
+        alert("Success! You will shortly get an email with your tickets.");
+      }
     }
+    getResponse();
   }
   return (
     <div>

@@ -12,14 +12,14 @@ export default function CancelTicketPage() {
         let ticket = await getFetch("http://localhost:8080/ticket/"+ticketNum);
 
         console.log(ticket);
-        if(ticket['error'] == "Internal Server Error") {
+        if(ticket['error'] === "Internal Server Error") {
             alert("Invalid ticket number. Please try again!");
             return -1;
         }
 
         let cancellation = await postFetch(("http://localhost:8080/cancel/"+ticketNum+"/"+email), null);
         console.log(cancellation.message);
-        if(cancellation["error"] == "Internal Server Error") {
+        if(cancellation["error"] === "Internal Server Error") {
             alert("Error: "+cancellation.message);
             return -1;
         }
