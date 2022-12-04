@@ -38,6 +38,7 @@ function SeatView() {
       </Grid>
     );
   });
+  console.log(seatArray)
 
   return (
     <Grid

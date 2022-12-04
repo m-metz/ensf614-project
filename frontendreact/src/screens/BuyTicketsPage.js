@@ -47,10 +47,12 @@ export default function BuyTicketsPage() {
     let tickets = JSON.parse(sessionStorage.getItem("selectedSeats"));
     let currentShowtimeId = sessionStorage.getItem("currentShowtimeId");
 
+    console.log(tickets + "are tickx")
     tickets.forEach((element) => {
       ticketObject.push({
         currentShowtimeId: currentShowtimeId,
-        seatNum: element,
+        seatNum: element.seatNum,
+        seatRow: element.seatRow
       });
     });
 
@@ -79,10 +81,12 @@ export default function BuyTicketsPage() {
       <p>Theatre: {[sessionStorage.getItem("selectedTheatre")]}</p>
       <p>Show time: {[sessionStorage.getItem("selectedShowtime")]}</p>
       <p>Seats: {[sessionStorage.getItem("selectedSeats")]}</p>
-      <p><b>
-        Your total:{" "}
-        {JSON.parse(sessionStorage.getItem("selectedSeats")).length * 9.99 -
-          voucher} </b>
+      <p>
+        <b>
+          Your total:{" "}
+          {JSON.parse(sessionStorage.getItem("selectedSeats")).length * 9.99 -
+            voucher}{" "}
+        </b>
       </p>
 
       {isLoggedIn ? (
@@ -116,7 +120,7 @@ export default function BuyTicketsPage() {
         id="voucherForm"
         class="card"
       >
-        <label>Voucher info (will be subtracted from the total above):  </label>
+        <label>Voucher info (will be subtracted from the total above): </label>
         <input
           type="text"
           id="voucher"
