@@ -56,17 +56,20 @@ public class RegisteredUserService {
                 "More than one credit card is not supported.");
         }
 
-        chargeForMembership(registeredUser);
-
-        return registeredUserRepository.save(registeredUser);
+        return chargeForMembership(registeredUser);
     }
 
     public void renewMembership(String email) {
         RegisteredUser registeredUser = getRegisteredUserByEmail(email);
+        if (registeredUser == null) {
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR,
+                "A user with that e-mail does not exist.");
+        }
+
         chargeForMembership(registeredUser);
     }
 
-    private void chargeForMembership(RegisteredUser registeredUser) {
+    private RegisteredUser chargeForMembership(RegisteredUser registeredUser) {
         Card card = null;
         if (registeredUser.getPaymentCards().size() > 0) {
             card = registeredUser.getPaymentCards().get(0);
@@ -82,20 +85,22 @@ public class RegisteredUserService {
          */
 
         /*
-         * Membership term counts from today, so subtract a day from one year.
-         * 
          * If membershipExpiry is expired, or doesn't exist.
          */
         if (registeredUser.getMembershipExpiry() == null
             || LocalDate.now().compareTo(registeredUser.getMembershipExpiry()) > 0) {
+            /*
+             * Membership term counts from today, so subtract a day from one year.
+             */
             registeredUser.setMembershipExpiry(LocalDate.now().plusYears(1).minusDays(1));
         }
         /*
-         * else, add year to membership.
+         * else, add year to membershipExpiry.
          */
         else {
-            registeredUser.setMembershipExpiry(
-                registeredUser.getMembershipExpiry().plusYears(1).minusDays(1));
+            registeredUser.setMembershipExpiry(registeredUser.getMembershipExpiry().plusYears(1));
         }
+
+        return registeredUserRepository.save(registeredUser);
     }
 }
