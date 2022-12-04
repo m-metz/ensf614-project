@@ -29,12 +29,15 @@ export default function SearchCard(props) {
   const[isLoading, setIsLoading] = useState(true);
   const [theatres, setTheatres] = useState([]);
 
-  getFetch("http://localhost:8080/theatre/all")
-  .then(data => {
-      setIsLoading(false);
-      setTheatres(data);
-  });
+  if(isLoading) {
+    getFetch("http://localhost:8080/theatre/all")
+    .then(data => {
+        setIsLoading(false);
+        setTheatres(data);
+    });
+  }
 
+  
   if(isLoading) {
       return <section>
           <p>Loading...</p>
