@@ -27,7 +27,7 @@ function Paymentinfo() {
             <input type="text" id="cardnum" name="cardnum" required></input>
             <br></br>
             <br></br>
-            <label htmlFor="cardexpiry">Card Expiry (MM/YY): </label>
+            <label htmlFor="cardexpiry">Card Expiry (YYYY-MM-DD): </label>
             <input type="text" id="cardexpiry" name="cardexpiry" required></input>
             <br></br>
             <br></br>
