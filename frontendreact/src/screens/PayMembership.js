@@ -7,8 +7,11 @@ function PayMembership() {
     async function payMembershipHandler() {
     
         postFetch("http://localhost:8080/RegisteredUser/"+sessionStorage.currentEmail+"/renew-membership", null);
-        //let updatedMemberExpiry = 
+        let newmemberExpiry = await getFetch("http://localhost:8080/RegisteredUser/" + sessionStorage.currentEmail);
+        sessionStorage.setItem("memExpiry", newmemberExpiry.membershipExpiry);
         alert("Renewal Successful!");
+        window.location.pathway = '/payFee';
+        window.location.href = window.location.pathway;
     }
     
     return (
