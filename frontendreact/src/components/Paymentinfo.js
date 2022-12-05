@@ -1,5 +1,9 @@
 function Paymentinfo() {
-    //take in props here to know where to send this information
+/**
+ * Payment information for anywhere in app that asks for payment information from user
+ */
+
+
     return (
         <form class="card"
         id='Paymentinfo'>
@@ -34,7 +38,7 @@ function Paymentinfo() {
             <label htmlFor="csv">Security Code: </label>
             <input type="text" id="csv" name="csv" required></input>
             <br></br><br></br>
-            {/* <button className='btn' type="submit">Verify</button> */}
+
         </form>
     );
 

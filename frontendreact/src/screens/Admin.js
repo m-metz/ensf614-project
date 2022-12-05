@@ -4,7 +4,11 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-// import ManageRU from "../components/ManageRU";
+
+/**
+ * Admin page to add, remove and update movie database. Never used in the app.
+ */
+
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;

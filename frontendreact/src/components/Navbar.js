@@ -1,6 +1,10 @@
 //NavBar at top of all screens that allows user to open register and login at any time
 import { useState } from 'react';
 
+/**
+ * Dynamic navBar that changes depending on if user is logged in
+ */
+
 
 export default function Navbar(props) {
 

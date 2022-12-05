@@ -6,6 +6,10 @@ import { getFetch } from "../fetch";
 import { useState } from "react";
 import { Container } from "react-bootstrap";
 
+/**
+ * Seat selection page component to show seat grid and proceed to payment
+ */
+
 function ConfirmSelection() {
   window.location.pathway = "/buyticketspage";
   window.location.href = window.location.pathway;

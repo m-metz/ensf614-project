@@ -4,6 +4,10 @@ import Backdrop from '../components/Backdrop';
 import Homepage from '../screens/Homepage'
 import { postFetch } from '../fetch';
 
+/**
+ * Page component for user registration
+ */
+
 function Register(props) {
 
     function cancelHandler() {

@@ -2,6 +2,12 @@ import classes from "../styles/Movie.css";
 import * as React from "react";
 import { Button, } from "@mui/material";
 import { useState } from "react";
+
+/**
+ * Singular seat component that is selectable
+ */
+
+
 let seatList = [];
 function Seat(props) {
   const [clicked, setClicked] = useState(false);

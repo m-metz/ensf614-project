@@ -2,6 +2,10 @@ import { getFetch } from '../fetch';
 import { postFetch } from '../fetch';
 import {useState} from 'react';
 
+/**
+ * Page component showing manage accounts options
+ */
+
 function PayMembership() {
 
     async function payMembershipHandler() {

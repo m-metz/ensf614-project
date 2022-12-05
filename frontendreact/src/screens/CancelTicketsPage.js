@@ -1,8 +1,14 @@
 import { getFetch } from '../fetch';
 import { postFetch } from '../fetch'
 
+/**
+ * Page component for when user wants to cancel a ticket
+ */
+
+
 export default function CancelTicketPage() {
 
+    //Pulls ticketID info and sends cancellation request to server
     async function cancelHandler() {
         let cancelForm = document.getElementById('cancelForm');
         let ticketNum = cancelForm.ticketnum.value;

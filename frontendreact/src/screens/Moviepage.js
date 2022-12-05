@@ -11,6 +11,10 @@ console.log("id:", currentMovieId);
 console.log("title:", title);
 console.log("image:", image);
 
+/**
+ * Page component showing selected movie with theatre and showtime searches
+ */
+
 function Moviepage() {
 
     return (

@@ -2,6 +2,10 @@ import classes from '../styles/MovieList.css';
 import Movie from './Movie';
 import {Grid} from '@mui/material';
 
+/**
+ * Grid component for all movie cards
+ */
+
 function Movielist(props) {
 
     function movieSelectHandler() {

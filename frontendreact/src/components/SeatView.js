@@ -2,6 +2,11 @@ import Seat from "./Seat";
 import { Grid } from "@mui/material";
 import { getFetch } from "../fetch";
 import { useState } from "react";
+
+/**
+ * Seat grid to graphically view all seats and grab seats/status from server
+ */
+
 function SeatView() {
   const [isLoading, setIsLoading] = useState(true);
   const [seatObjects, setSeatObjects] = useState([]);
@@ -24,6 +29,7 @@ function SeatView() {
     );
   }
 
+  //Apply seat data from fetch to grid
   let seatArray = seatObjects.map((seat) => {
     return (
       <Grid

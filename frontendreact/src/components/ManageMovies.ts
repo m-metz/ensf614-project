@@ -1,3 +1,7 @@
+/**
+ * Manage movies component for admin purposes. Never used in react web app.
+ */
+
 import React from 'react'
 import { DataGrid, GridRowsProp, GridColDef } from '@mui/x-data-grid';
 

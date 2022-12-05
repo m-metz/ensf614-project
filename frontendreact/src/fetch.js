@@ -1,3 +1,8 @@
+/**
+ * Fetch functions to be used through entire react application
+ */
+
+
 export async function getFetch(api) {
         let response = await fetch(api);
         return response.json();

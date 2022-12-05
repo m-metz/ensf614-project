@@ -3,6 +3,8 @@ import { getFetch } from '../fetch';
 import {useState} from 'react';
 import { Box } from '@mui/material';
 
+//Homepage of movie application. Returned here on any cancellation
+
 function Homepage() {
     const[isLoading, setIsLoading] = useState(true);
     const [loadedMovies, setLoadedMovies] = useState([]);

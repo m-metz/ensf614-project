@@ -4,6 +4,10 @@ import CardContent from '@mui/material/CardContent';
 import { getFetch } from '../fetch';
 import {useState} from 'react';
 
+/**
+ * Fetches theatre list and showtime list and populates in html
+ */
+
 
   //Uses the getFetch to grab all theatres and populate dropdown
   window.addEventListener("load", async function(evt) {
@@ -26,6 +30,7 @@ export default function SearchCard(props) {
 
   const currentMovieId = sessionStorage.getItem("currentMovieId");
 
+  //Make page load until data from fetch is received using states
   const[isLoading, setIsLoading] = useState(true);
   const [theatres, setTheatres] = useState([]);
 
@@ -44,6 +49,7 @@ export default function SearchCard(props) {
       </section>
   }
 
+  //Uses selected theatre and movie id and populates existing showtimes dropdown
   async function showtimeHandler(evt) {
     evt.preventDefault();
     sessionStorage.setItem("selectedTheatre", document.getElementById("theatreOptions").value)
@@ -78,6 +84,7 @@ export default function SearchCard(props) {
     } 
   }
 
+  //Saves showtime, theatre and movie ids and passes them to seat selection
   async function ticketHandler(evt) {
     evt.preventDefault();
     //Set Selected Showtime in Session Storage

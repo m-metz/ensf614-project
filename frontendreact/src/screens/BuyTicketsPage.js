@@ -1,15 +1,24 @@
 import { Box, Button } from "@mui/material";
 import Paymentinfo from "../components/Paymentinfo";
 import { getFetch, postFetch } from "../fetch";
+
+/**
+ * Page component for when user is buying a ticket.
+ */
+
+
 let voucher = 0;
 export default function BuyTicketsPage() {
   let email = sessionStorage.getItem("currentEmail");
   const isLoggedIn = email !== null && email !== "null";
 
+  //Returns user to homepage when payment cancelled
   function cancelHandler() {
     window.location.pathway = "/";
     window.location.href = window.location.pathway;
   }
+
+  //Performs all communication between server and client when a payment is submitted
   async function SubmitHander() {
     let paymentform;
     let cvv;

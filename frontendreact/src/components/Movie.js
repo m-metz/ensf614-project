@@ -6,9 +6,13 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 
+/**
+ * Singular movie component with image and title.
+ */
 
 function Movie(props) {
 
+    //Handler for when movie is selected
     function movieSelectHandler() {
         console.log(props.title);
         sessionStorage.setItem("movieImage", props.image);
@@ -18,6 +22,7 @@ function Movie(props) {
         window.location.href = window.location.pathway;
     }
 
+    //Rendered component
     return (
         <Card sx={{ }} onClick={movieSelectHandler}>
             <CardActionArea>

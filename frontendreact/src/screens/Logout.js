@@ -1,3 +1,8 @@
+/**
+ * Logout page component to restate logged state
+ */
+
+
 export default function Logout(props) {
 
     function cancelHandler() {
@@ -5,6 +10,7 @@ export default function Logout(props) {
         window.location.href = window.location.pathway;
     }
 
+    //clears sessionstorage to reset currentEmail and reset state to logged out
     function logoutHandler(evt) {
         evt.preventDefault();
         sessionStorage.setItem("currentEmail", null);

@@ -1,6 +1,11 @@
 import Backdrop from "../components/Backdrop";
 import { getFetch } from '../fetch';
 
+/**
+ * Login page component that checks user login credentials
+ */
+
+
 function Login() {
 
     function cancelHandler() {
