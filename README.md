@@ -1,5 +1,5 @@
-# ENSF614Project
-Movie theatre web application
+# Movie Theatre Web App
+This is our Movie Theatre Web App group project for ENSF 614 - Advanced Systems Analysis and Software Design.
 
 ## To start server
 1. Start a new database by running an SQL script "create database movie_theatre"
@@ -13,4 +13,3 @@ web-api\src\main\java\com\ensf614project\movietheatre\MovieTheatreApplication.ja
 
 ## To start frontend,
 - Navigate to frontendreact, run yarn, npm start
-
